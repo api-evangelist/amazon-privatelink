@@ -8,11 +8,11 @@ description: >-
 type: Index
 image: https://kinlane-productions.s3.amazonaws.com/apis-json/apis-json-logo.jpg
 tags:
-  - Private Connectivity
-  - VPC
-  - Networking
-  - Security
   - AWS
+  - Networking
+  - Private Connectivity
+  - Security
+  - VPC
 url: >-
   https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml
 created: '2026-03-16'
@@ -28,9 +28,9 @@ apis:
     humanURL: https://aws.amazon.com/privatelink/
     baseURL: https://ec2.amazonaws.com
     tags:
+      - Networking
       - Private Connectivity
       - VPC
-      - Networking
     properties:
       - type: Documentation
         url: https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
