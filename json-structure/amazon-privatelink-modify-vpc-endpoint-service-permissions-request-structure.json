@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-modify-vpc-endpoint-service-permissions-request-structure.json",
+  "name": "ModifyVpcEndpointServicePermissionsRequest",
+  "description": "ModifyVpcEndpointServicePermissionsRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "string",
+      "description": "ID of the endpoint service"
+    },
+    "AddAllowedPrincipals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Principal ARNs to allow"
+    },
+    "RemoveAllowedPrincipals": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Principal ARNs to remove"
+    }
+  },
+  "required": [
+    "ServiceId"
+  ]
+}

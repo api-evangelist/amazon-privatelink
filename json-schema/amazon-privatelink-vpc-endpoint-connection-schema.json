@@ -1,0 +1,30 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-schema/amazon-privatelink-vpc-endpoint-connection-schema.json",
+  "title": "VpcEndpointConnection",
+  "description": "VpcEndpointConnection schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "string",
+      "description": "ID of the endpoint service"
+    },
+    "VpcEndpointId": {
+      "type": "string",
+      "description": "ID of the VPC endpoint"
+    },
+    "VpcEndpointOwner": {
+      "type": "string",
+      "description": "AWS account ID of the endpoint owner"
+    },
+    "VpcEndpointState": {
+      "type": "string",
+      "description": "State of the endpoint"
+    },
+    "CreationTimestamp": {
+      "type": "string",
+      "format": "date-time",
+      "description": "Time the connection was created"
+    }
+  }
+}

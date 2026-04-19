@@ -1,0 +1,180 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "pl": "https://ec2.amazonaws.com/schema/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "RejectVpcEndpointConnectionsRequest": "pl:RejectVpcEndpointConnectionsRequest",
+    "ServiceId": {
+      "@id": "pl:ServiceId",
+      "@type": "xsd:string"
+    },
+    "VpcEndpointId": {
+      "@id": "pl:VpcEndpointId",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "DescribeVpcEndpointsResult": "pl:DescribeVpcEndpointsResult",
+    "VpcEndpoints": {
+      "@id": "pl:VpcEndpoints",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "NextToken": {
+      "@id": "pl:NextToken",
+      "@type": "xsd:string"
+    },
+    "VpcEndpoint": "pl:VpcEndpoint",
+    "VpcEndpointType": {
+      "@id": "pl:VpcEndpointType",
+      "@type": "xsd:string"
+    },
+    "VpcId": {
+      "@id": "pl:VpcId",
+      "@type": "xsd:string"
+    },
+    "ServiceName": {
+      "@id": "pl:ServiceName",
+      "@type": "xsd:string"
+    },
+    "State": {
+      "@id": "pl:State",
+      "@type": "xsd:string"
+    },
+    "PolicyDocument": {
+      "@id": "pl:PolicyDocument",
+      "@type": "xsd:string"
+    },
+    "SubnetIds": {
+      "@id": "pl:SubnetIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "NetworkInterfaceIds": {
+      "@id": "pl:NetworkInterfaceIds",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "DnsEntries": {
+      "@id": "pl:DnsEntries",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "CreateVpcEndpointServiceConfigurationResult": "pl:CreateVpcEndpointServiceConfigurationResult",
+    "ServiceConfiguration": "pl:ServiceConfiguration",
+    "ModifyVpcEndpointServicePermissionsRequest": "pl:ModifyVpcEndpointServicePermissionsRequest",
+    "AddAllowedPrincipals": {
+      "@id": "pl:AddAllowedPrincipals",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "RemoveAllowedPrincipals": {
+      "@id": "pl:RemoveAllowedPrincipals",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "CreateVpcEndpointServiceConfigurationRequest": "pl:CreateVpcEndpointServiceConfigurationRequest",
+    "NetworkLoadBalancerArn": {
+      "@id": "pl:NetworkLoadBalancerArn",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "GatewayLoadBalancerArn": {
+      "@id": "pl:GatewayLoadBalancerArn",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "AcceptanceRequired": {
+      "@id": "pl:AcceptanceRequired",
+      "@type": "xsd:boolean"
+    },
+    "PrivateDnsName": {
+      "@id": "pl:PrivateDnsName",
+      "@type": "xsd:string"
+    },
+    "ModifyVpcEndpointRequest": "pl:ModifyVpcEndpointRequest",
+    "ResetPolicy": {
+      "@id": "pl:ResetPolicy",
+      "@type": "xsd:boolean"
+    },
+    "VpcEndpointConnection": "pl:VpcEndpointConnection",
+    "VpcEndpointOwner": {
+      "@id": "pl:VpcEndpointOwner",
+      "@type": "xsd:string"
+    },
+    "VpcEndpointState": {
+      "@id": "pl:VpcEndpointState",
+      "@type": "xsd:string"
+    },
+    "CreationTimestamp": {
+      "@id": "pl:CreationTimestamp",
+      "@type": "xsd:dateTime"
+    },
+    "CreateVpcEndpointResult": "pl:CreateVpcEndpointResult",
+    "DeleteVpcEndpointServiceConfigurationsRequest": "pl:DeleteVpcEndpointServiceConfigurationsRequest",
+    "DescribeVpcEndpointServicesResult": "pl:DescribeVpcEndpointServicesResult",
+    "ServiceNames": {
+      "@id": "pl:ServiceNames",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ServiceDetails": {
+      "@id": "pl:ServiceDetails",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "AcceptVpcEndpointConnectionsRequest": "pl:AcceptVpcEndpointConnectionsRequest",
+    "CreateVpcEndpointRequest": "pl:CreateVpcEndpointRequest",
+    "SubnetId": {
+      "@id": "pl:SubnetId",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "SecurityGroupId": {
+      "@id": "pl:SecurityGroupId",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "PrivateDnsEnabled": {
+      "@id": "pl:PrivateDnsEnabled",
+      "@type": "xsd:boolean"
+    },
+    "DeleteVpcEndpointsRequest": "pl:DeleteVpcEndpointsRequest",
+    "ServiceType": {
+      "@id": "pl:ServiceType",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ServiceState": {
+      "@id": "pl:ServiceState",
+      "@type": "xsd:string"
+    },
+    "AvailabilityZones": {
+      "@id": "pl:AvailabilityZones",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "NetworkLoadBalancerArns": {
+      "@id": "pl:NetworkLoadBalancerArns",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "DescribeVpcEndpointConnectionsResult": "pl:DescribeVpcEndpointConnectionsResult",
+    "VpcEndpointConnections": {
+      "@id": "pl:VpcEndpointConnections",
+      "@container": "@set",
+      "@type": "xsd:string"
+    },
+    "ModifyVpcEndpointServiceConfigurationRequest": "pl:ModifyVpcEndpointServiceConfigurationRequest",
+    "ServiceDetail": "pl:ServiceDetail",
+    "Owner": {
+      "@id": "pl:Owner",
+      "@type": "xsd:string"
+    },
+    "BaseEndpointDnsNames": {
+      "@id": "pl:BaseEndpointDnsNames",
+      "@container": "@set",
+      "@type": "xsd:string"
+    }
+  }
+}

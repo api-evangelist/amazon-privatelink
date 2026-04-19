@@ -1,0 +1,5 @@
+{
+  "ServiceId": "vpce-266957",
+  "AcceptanceRequired": true,
+  "PrivateDnsName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123"
+}

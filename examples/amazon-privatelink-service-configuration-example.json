@@ -1,0 +1,16 @@
+{
+  "ServiceType": [
+    {}
+  ],
+  "ServiceId": "vpce-962407",
+  "ServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+  "ServiceState": "Pending",
+  "AcceptanceRequired": true,
+  "AvailabilityZones": [
+    "us-east-1a"
+  ],
+  "NetworkLoadBalancerArns": [
+    "arn:aws:elasticloadbalancing:us-east-1:123456789:loadbalancer/net/my-nlb/abc123"
+  ],
+  "PrivateDnsName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123"
+}

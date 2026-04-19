@@ -1,0 +1,7 @@
+{
+  "ServiceId": "vpce-369807",
+  "VpcEndpointId": "vpce-147745",
+  "VpcEndpointOwner": "123456789012",
+  "VpcEndpointState": "Available",
+  "CreationTimestamp": "2025-03-15T14:30:00Z"
+}

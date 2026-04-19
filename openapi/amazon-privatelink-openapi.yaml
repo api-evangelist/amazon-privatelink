@@ -1,0 +1,645 @@
+openapi: 3.0.3
+info:
+  title: Amazon PrivateLink API
+  description: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.
+  version: '2016-11-15'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-generated-from: documentation
+servers:
+  - url: https://ec2.{region}.amazonaws.com
+    description: Amazon EC2 regional endpoint (PrivateLink operations)
+    variables:
+      region:
+        default: us-east-1
+        description: AWS region
+security:
+  - sigv4: []
+tags:
+  - name: Endpoint Services
+    description: VPC endpoint services (provider side)
+  - name: VPC Endpoints
+    description: VPC endpoints (consumer side)
+  - name: Endpoint Connections
+    description: Endpoint connection management
+  - name: Principals
+    description: Endpoint service principal management
+paths:
+  /?Action=CreateVpcEndpointServiceConfiguration:
+    post:
+      operationId: CreateVpcEndpointServiceConfiguration
+      summary: Amazon PrivateLink Create VPC Endpoint Service Configuration
+      description: Creates a VPC endpoint service configuration to which service consumers can connect.
+      tags:
+        - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateVpcEndpointServiceConfigurationRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configuration created
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateVpcEndpointServiceConfigurationResult'
+        '400':
+          description: Bad request
+
+  /?Action=DescribeVpcEndpointServices:
+    get:
+      operationId: DescribeVpcEndpointServices
+      summary: Amazon PrivateLink Describe VPC Endpoint Services
+      description: Describes available VPC endpoint services including AWS marketplace services.
+      tags:
+        - Endpoint Services
+      parameters:
+        - name: Filter
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filters to apply to the endpoint service list
+        - name: MaxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum number of results to return
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token
+      responses:
+        '200':
+          description: VPC endpoint services retrieved
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeVpcEndpointServicesResult'
+
+  /?Action=ModifyVpcEndpointServiceConfiguration:
+    post:
+      operationId: ModifyVpcEndpointServiceConfiguration
+      summary: Amazon PrivateLink Modify VPC Endpoint Service Configuration
+      description: Modifies the attributes of a VPC endpoint service configuration.
+      tags:
+        - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModifyVpcEndpointServiceConfigurationRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configuration modified
+
+  /?Action=DeleteVpcEndpointServiceConfigurations:
+    post:
+      operationId: DeleteVpcEndpointServiceConfigurations
+      summary: Amazon PrivateLink Delete VPC Endpoint Service Configurations
+      description: Deletes VPC endpoint service configurations.
+      tags:
+        - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeleteVpcEndpointServiceConfigurationsRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configurations deleted
+
+  /?Action=CreateVpcEndpoint:
+    post:
+      operationId: CreateVpcEndpoint
+      summary: Amazon PrivateLink Create VPC Endpoint
+      description: Creates a VPC endpoint for a specified service, enabling private connectivity from your VPC.
+      tags:
+        - VPC Endpoints
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateVpcEndpointRequest'
+      responses:
+        '200':
+          description: VPC endpoint created
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateVpcEndpointResult'
+
+  /?Action=DescribeVpcEndpoints:
+    get:
+      operationId: DescribeVpcEndpoints
+      summary: Amazon PrivateLink Describe VPC Endpoints
+      description: Describes VPC endpoints in your account.
+      tags:
+        - VPC Endpoints
+      parameters:
+        - name: Filter
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filters for the endpoint list
+        - name: MaxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum number of results
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token
+      responses:
+        '200':
+          description: VPC endpoints retrieved
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeVpcEndpointsResult'
+
+  /?Action=ModifyVpcEndpoint:
+    post:
+      operationId: ModifyVpcEndpoint
+      summary: Amazon PrivateLink Modify VPC Endpoint
+      description: Modifies attributes of a VPC endpoint.
+      tags:
+        - VPC Endpoints
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModifyVpcEndpointRequest'
+      responses:
+        '200':
+          description: VPC endpoint modified
+
+  /?Action=DeleteVpcEndpoints:
+    post:
+      operationId: DeleteVpcEndpoints
+      summary: Amazon PrivateLink Delete VPC Endpoints
+      description: Deletes VPC endpoints.
+      tags:
+        - VPC Endpoints
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeleteVpcEndpointsRequest'
+      responses:
+        '200':
+          description: VPC endpoints deleted
+
+  /?Action=DescribeVpcEndpointConnections:
+    get:
+      operationId: DescribeVpcEndpointConnections
+      summary: Amazon PrivateLink Describe VPC Endpoint Connections
+      description: Describes the VPC endpoint connections to your VPC endpoint services.
+      tags:
+        - Endpoint Connections
+      parameters:
+        - name: Filter
+          in: query
+          schema:
+            type: array
+            items:
+              type: string
+          description: Filters for connections
+        - name: MaxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum number of results
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token
+      responses:
+        '200':
+          description: VPC endpoint connections retrieved
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeVpcEndpointConnectionsResult'
+
+  /?Action=AcceptVpcEndpointConnections:
+    post:
+      operationId: AcceptVpcEndpointConnections
+      summary: Amazon PrivateLink Accept VPC Endpoint Connections
+      description: Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.
+      tags:
+        - Endpoint Connections
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AcceptVpcEndpointConnectionsRequest'
+      responses:
+        '200':
+          description: Endpoint connections accepted
+
+  /?Action=RejectVpcEndpointConnections:
+    post:
+      operationId: RejectVpcEndpointConnections
+      summary: Amazon PrivateLink Reject VPC Endpoint Connections
+      description: Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
+      tags:
+        - Endpoint Connections
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RejectVpcEndpointConnectionsRequest'
+      responses:
+        '200':
+          description: Endpoint connections rejected
+
+  /?Action=ModifyVpcEndpointServicePermissions:
+    post:
+      operationId: ModifyVpcEndpointServicePermissions
+      summary: Amazon PrivateLink Modify VPC Endpoint Service Permissions
+      description: Modifies the permissions for a VPC endpoint service, adding or removing principal ARNs.
+      tags:
+        - Principals
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModifyVpcEndpointServicePermissionsRequest'
+      responses:
+        '200':
+          description: Service permissions modified
+
+  /?Action=DescribeVpcEndpointServicePermissions:
+    get:
+      operationId: DescribeVpcEndpointServicePermissions
+      summary: Amazon PrivateLink Describe VPC Endpoint Service Permissions
+      description: Describes the principals (service consumers) that are permitted to discover or connect to your endpoint service.
+      tags:
+        - Principals
+      parameters:
+        - name: ServiceId
+          in: query
+          required: true
+          schema:
+            type: string
+          description: The ID of the endpoint service
+        - name: MaxResults
+          in: query
+          schema:
+            type: integer
+          description: Maximum number of results
+        - name: NextToken
+          in: query
+          schema:
+            type: string
+          description: Pagination token
+      responses:
+        '200':
+          description: Service permissions retrieved
+
+components:
+  securitySchemes:
+    sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4
+  schemas:
+    CreateVpcEndpointServiceConfigurationRequest:
+      type: object
+      properties:
+        NetworkLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers for the endpoint service
+        GatewayLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Gateway Load Balancers for the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connection requests require manual acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name for the endpoint service
+    CreateVpcEndpointServiceConfigurationResult:
+      type: object
+      properties:
+        ServiceConfiguration:
+          $ref: '#/components/schemas/ServiceConfiguration'
+    ServiceConfiguration:
+      type: object
+      properties:
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service (Interface or Gateway)
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceState:
+          type: string
+          enum: [Pending, Available, Deleting, Deleted, Failed]
+          description: State of the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        AvailabilityZones:
+          type: array
+          items:
+            type: string
+          description: Availability zones where the service is available
+        NetworkLoadBalancerArns:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+    DescribeVpcEndpointServicesResult:
+      type: object
+      properties:
+        ServiceNames:
+          type: array
+          items:
+            type: string
+          description: List of supported service names
+        ServiceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDetail'
+        NextToken:
+          type: string
+          description: Token for next page of results
+    ServiceDetail:
+      type: object
+      properties:
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service
+        AvailabilityZones:
+          type: array
+          items:
+            type: string
+          description: Availability zones
+        Owner:
+          type: string
+          description: Owner AWS account ID
+        BaseEndpointDnsNames:
+          type: array
+          items:
+            type: string
+          description: Base DNS names for the endpoint service
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+        AcceptanceRequired:
+          type: boolean
+          description: Whether acceptance is required
+    CreateVpcEndpointRequest:
+      type: object
+      required:
+        - VpcId
+        - ServiceName
+      properties:
+        VpcId:
+          type: string
+          description: ID of the VPC for the endpoint
+        ServiceName:
+          type: string
+          description: Service name for the endpoint
+        VpcEndpointType:
+          type: string
+          enum: [Interface, Gateway, GatewayLoadBalancer]
+          description: Type of VPC endpoint
+        SubnetId:
+          type: array
+          items:
+            type: string
+          description: IDs of subnets for interface endpoints
+        SecurityGroupId:
+          type: array
+          items:
+            type: string
+          description: IDs of security groups for interface endpoints
+        PolicyDocument:
+          type: string
+          description: Policy document for gateway endpoints
+        PrivateDnsEnabled:
+          type: boolean
+          description: Enable private DNS for interface endpoints
+    CreateVpcEndpointResult:
+      type: object
+      properties:
+        VpcEndpoint:
+          $ref: '#/components/schemas/VpcEndpoint'
+    VpcEndpoint:
+      type: object
+      properties:
+        VpcEndpointId:
+          type: string
+          description: ID of the VPC endpoint
+        VpcEndpointType:
+          type: string
+          description: Type of VPC endpoint
+        VpcId:
+          type: string
+          description: ID of the VPC
+        ServiceName:
+          type: string
+          description: Name of the service
+        State:
+          type: string
+          enum: [PendingAcceptance, Pending, Available, Deleting, Deleted, Rejected, Failed, Expired]
+          description: State of the endpoint
+        PolicyDocument:
+          type: string
+          description: Policy document
+        SubnetIds:
+          type: array
+          items:
+            type: string
+          description: Subnet IDs for interface endpoints
+        NetworkInterfaceIds:
+          type: array
+          items:
+            type: string
+          description: Network interface IDs
+        DnsEntries:
+          type: array
+          items:
+            type: object
+            properties:
+              DnsName:
+                type: string
+              HostedZoneId:
+                type: string
+          description: DNS entries for the endpoint
+    DescribeVpcEndpointsResult:
+      type: object
+      properties:
+        VpcEndpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpoint'
+        NextToken:
+          type: string
+    ModifyVpcEndpointServiceConfigurationRequest:
+      type: object
+      required:
+        - ServiceId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service to modify
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+    DeleteVpcEndpointServiceConfigurationsRequest:
+      type: object
+      required:
+        - ServiceId
+      properties:
+        ServiceId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoint services to delete
+    ModifyVpcEndpointRequest:
+      type: object
+      required:
+        - VpcEndpointId
+      properties:
+        VpcEndpointId:
+          type: string
+          description: ID of the endpoint to modify
+        ResetPolicy:
+          type: boolean
+          description: Reset the policy to the default
+        PolicyDocument:
+          type: string
+          description: New policy document
+    DeleteVpcEndpointsRequest:
+      type: object
+      required:
+        - VpcEndpointId
+      properties:
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to delete
+    DescribeVpcEndpointConnectionsResult:
+      type: object
+      properties:
+        VpcEndpointConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpointConnection'
+        NextToken:
+          type: string
+    VpcEndpointConnection:
+      type: object
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: string
+          description: ID of the VPC endpoint
+        VpcEndpointOwner:
+          type: string
+          description: AWS account ID of the endpoint owner
+        VpcEndpointState:
+          type: string
+          description: State of the endpoint
+        CreationTimestamp:
+          type: string
+          format: date-time
+          description: Time the connection was created
+    AcceptVpcEndpointConnectionsRequest:
+      type: object
+      required:
+        - ServiceId
+        - VpcEndpointId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to accept
+    RejectVpcEndpointConnectionsRequest:
+      type: object
+      required:
+        - ServiceId
+        - VpcEndpointId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to reject
+    ModifyVpcEndpointServicePermissionsRequest:
+      type: object
+      required:
+        - ServiceId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        AddAllowedPrincipals:
+          type: array
+          items:
+            type: string
+          description: Principal ARNs to allow
+        RemoveAllowedPrincipals:
+          type: array
+          items:
+            type: string
+          description: Principal ARNs to remove

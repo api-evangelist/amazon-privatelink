@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-schema/amazon-privatelink-delete-vpc-endpoints-request-schema.json",
+  "title": "DeleteVpcEndpointsRequest",
+  "description": "DeleteVpcEndpointsRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "VpcEndpointId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of endpoints to delete"
+    }
+  },
+  "required": [
+    "VpcEndpointId"
+  ]
+}

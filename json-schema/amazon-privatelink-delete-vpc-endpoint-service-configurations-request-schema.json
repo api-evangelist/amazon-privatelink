@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-schema/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-schema.json",
+  "title": "DeleteVpcEndpointServiceConfigurationsRequest",
+  "description": "DeleteVpcEndpointServiceConfigurationsRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of endpoint services to delete"
+    }
+  },
+  "required": [
+    "ServiceId"
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "ServiceId": "vpce-136390",
+  "AddAllowedPrincipals": [
+    "example-AddAllowedPrincipals_item"
+  ],
+  "RemoveAllowedPrincipals": [
+    "example-RemoveAllowedPrincipals_item"
+  ]
+}

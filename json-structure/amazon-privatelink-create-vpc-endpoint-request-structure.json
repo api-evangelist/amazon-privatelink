@@ -1,0 +1,52 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-create-vpc-endpoint-request-structure.json",
+  "name": "CreateVpcEndpointRequest",
+  "description": "CreateVpcEndpointRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "VpcId": {
+      "type": "string",
+      "description": "ID of the VPC for the endpoint"
+    },
+    "ServiceName": {
+      "type": "string",
+      "description": "Service name for the endpoint"
+    },
+    "VpcEndpointType": {
+      "type": "string",
+      "enum": [
+        "Interface",
+        "Gateway",
+        "GatewayLoadBalancer"
+      ],
+      "description": "Type of VPC endpoint"
+    },
+    "SubnetId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of subnets for interface endpoints"
+    },
+    "SecurityGroupId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of security groups for interface endpoints"
+    },
+    "PolicyDocument": {
+      "type": "string",
+      "description": "Policy document for gateway endpoints"
+    },
+    "PrivateDnsEnabled": {
+      "type": "boolean",
+      "description": "Enable private DNS for interface endpoints"
+    }
+  },
+  "required": [
+    "VpcId",
+    "ServiceName"
+  ]
+}

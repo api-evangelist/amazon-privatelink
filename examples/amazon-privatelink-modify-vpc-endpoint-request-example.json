@@ -1,0 +1,5 @@
+{
+  "VpcEndpointId": "vpce-614307",
+  "ResetPolicy": true,
+  "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Principal\":\"*\"}]}"
+}

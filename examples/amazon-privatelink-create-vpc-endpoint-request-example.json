@@ -1,0 +1,13 @@
+{
+  "VpcId": "vpce-188744",
+  "ServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+  "VpcEndpointType": "Gateway",
+  "SubnetId": [
+    "vpce-759591"
+  ],
+  "SecurityGroupId": [
+    "vpce-858581"
+  ],
+  "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Principal\":\"*\"}]}",
+  "PrivateDnsEnabled": true
+}

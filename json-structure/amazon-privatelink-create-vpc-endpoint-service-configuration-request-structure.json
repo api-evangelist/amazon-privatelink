@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-create-vpc-endpoint-service-configuration-request-structure.json",
+  "name": "CreateVpcEndpointServiceConfigurationRequest",
+  "description": "CreateVpcEndpointServiceConfigurationRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "NetworkLoadBalancerArn": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ARNs of Network Load Balancers for the endpoint service"
+    },
+    "GatewayLoadBalancerArn": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ARNs of Gateway Load Balancers for the endpoint service"
+    },
+    "AcceptanceRequired": {
+      "type": "boolean",
+      "description": "Whether connection requests require manual acceptance"
+    },
+    "PrivateDnsName": {
+      "type": "string",
+      "description": "Private DNS name for the endpoint service"
+    }
+  }
+}

@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-accept-vpc-endpoint-connections-request-structure.json",
+  "name": "AcceptVpcEndpointConnectionsRequest",
+  "description": "AcceptVpcEndpointConnectionsRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "string",
+      "description": "ID of the endpoint service"
+    },
+    "VpcEndpointId": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "IDs of endpoints to accept"
+    }
+  },
+  "required": [
+    "ServiceId",
+    "VpcEndpointId"
+  ]
+}

@@ -1,0 +1,252 @@
+naftiko: "1.0.0-alpha1"
+
+info:
+  label: Amazon PrivateLink API
+  description: Private connectivity API for creating VPC endpoint services, VPC endpoints, and managing endpoint connections between VPCs and AWS services.
+  tags:
+    - Amazon
+    - AWS
+    - Networking
+    - Private Connectivity
+    - VPC
+    - Security
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+binds:
+  - namespace: env
+    keys:
+      AWS_ACCESS_KEY_ID: AWS_ACCESS_KEY_ID
+      AWS_SECRET_ACCESS_KEY: AWS_SECRET_ACCESS_KEY
+      AWS_REGION: AWS_REGION
+
+capability:
+  consumes:
+    - type: http
+      namespace: amazon-privatelink
+      baseUri: https://ec2.{region}.amazonaws.com
+      description: Amazon PrivateLink (EC2 API) private connectivity endpoints
+      authentication:
+        type: apikey
+        key: Authorization
+        value: "{{AWS_ACCESS_KEY_ID}}"
+        placement: header
+      resources:
+        - name: endpoint-services
+          path: /?Action=DescribeVpcEndpointServices
+          description: VPC endpoint services
+          operations:
+            - name: describe-endpoint-services
+              method: GET
+              description: List available VPC endpoint services
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-endpoint-service
+              method: POST
+              description: Create a VPC endpoint service configuration
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  NetworkLoadBalancerArn: "{{tools.nlb_arn}}"
+                  AcceptanceRequired: "{{tools.acceptance_required}}"
+
+        - name: endpoints
+          path: /?Action=DescribeVpcEndpoints
+          description: VPC endpoints
+          operations:
+            - name: describe-endpoints
+              method: GET
+              description: List VPC endpoints in the account
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: create-endpoint
+              method: POST
+              description: Create a VPC endpoint for a service
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  VpcId: "{{tools.vpc_id}}"
+                  ServiceName: "{{tools.service_name}}"
+                  VpcEndpointType: "{{tools.endpoint_type}}"
+
+        - name: endpoint-connections
+          path: /?Action=DescribeVpcEndpointConnections
+          description: VPC endpoint connections
+          operations:
+            - name: describe-connections
+              method: GET
+              description: List connections to endpoint services
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+            - name: accept-connections
+              method: POST
+              description: Accept VPC endpoint connections
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  ServiceId: "{{tools.service_id}}"
+                  VpcEndpointId: "{{tools.endpoint_ids}}"
+            - name: reject-connections
+              method: POST
+              description: Reject VPC endpoint connections
+              outputRawFormat: json
+              outputParameters:
+                - name: result
+                  type: object
+                  value: "$."
+              body:
+                type: json
+                data:
+                  ServiceId: "{{tools.service_id}}"
+                  VpcEndpointId: "{{tools.endpoint_ids}}"
+
+  exposes:
+    - type: rest
+      port: 8100
+      namespace: amazon-privatelink-rest
+      resources:
+        - path: /v1/endpoint-services
+          name: endpoint-services
+          description: VPC endpoint service management
+          operations:
+            - method: GET
+              name: list-endpoint-services
+              description: List endpoint services
+              call: "amazon-privatelink.describe-endpoint-services"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-endpoint-service
+              description: Create an endpoint service
+              call: "amazon-privatelink.create-endpoint-service"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+        - path: /v1/endpoints
+          name: endpoints
+          description: VPC endpoint management
+          operations:
+            - method: GET
+              name: list-endpoints
+              description: List VPC endpoints
+              call: "amazon-privatelink.describe-endpoints"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+            - method: POST
+              name: create-endpoint
+              description: Create a VPC endpoint
+              call: "amazon-privatelink.create-endpoint"
+              outputParameters:
+                - type: object
+                  mapping: "$."
+
+    - type: mcp
+      port: 9100
+      namespace: amazon-privatelink-mcp
+      transport: http
+      tools:
+        - name: list-endpoint-services
+          description: List available VPC endpoint services
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amazon-privatelink.describe-endpoint-services"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-endpoint-service
+          description: Create a VPC endpoint service backed by a Network Load Balancer
+          hints:
+            readOnly: false
+            destructive: false
+          call: "amazon-privatelink.create-endpoint-service"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-vpc-endpoints
+          description: List VPC endpoints in the account
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amazon-privatelink.describe-endpoints"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: create-vpc-endpoint
+          description: Create a VPC endpoint for a service
+          hints:
+            readOnly: false
+            destructive: false
+          call: "amazon-privatelink.create-endpoint"
+          with:
+            vpc_id: "tools.vpc_id"
+            service_name: "tools.service_name"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: list-endpoint-connections
+          description: List connections to VPC endpoint services
+          hints:
+            readOnly: true
+            openWorld: true
+          call: "amazon-privatelink.describe-connections"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: accept-endpoint-connections
+          description: Accept VPC endpoint connection requests to a service
+          hints:
+            readOnly: false
+            destructive: false
+          call: "amazon-privatelink.accept-connections"
+          with:
+            service_id: "tools.service_id"
+            endpoint_ids: "tools.endpoint_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."
+
+        - name: reject-endpoint-connections
+          description: Reject VPC endpoint connection requests to a service
+          hints:
+            readOnly: false
+            destructive: true
+          call: "amazon-privatelink.reject-connections"
+          with:
+            service_id: "tools.service_id"
+            endpoint_ids: "tools.endpoint_ids"
+          outputParameters:
+            - type: object
+              mapping: "$."

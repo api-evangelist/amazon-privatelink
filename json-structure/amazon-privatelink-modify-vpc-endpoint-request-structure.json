@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-modify-vpc-endpoint-request-structure.json",
+  "name": "ModifyVpcEndpointRequest",
+  "description": "ModifyVpcEndpointRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "VpcEndpointId": {
+      "type": "string",
+      "description": "ID of the endpoint to modify"
+    },
+    "ResetPolicy": {
+      "type": "boolean",
+      "description": "Reset the policy to the default"
+    },
+    "PolicyDocument": {
+      "type": "string",
+      "description": "New policy document"
+    }
+  },
+  "required": [
+    "VpcEndpointId"
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "VpcEndpointId": "vpce-926182",
+  "VpcEndpointType": "Interface",
+  "VpcId": "vpce-658466",
+  "ServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+  "State": "Deleted",
+  "PolicyDocument": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":\"*\",\"Effect\":\"Allow\",\"Resource\":\"*\",\"Principal\":\"*\"}]}",
+  "SubnetIds": [
+    "vpce-161150"
+  ],
+  "NetworkInterfaceIds": [
+    "vpce-540255"
+  ],
+  "DnsEntries": [
+    {
+      "DnsName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+      "HostedZoneId": "vpce-770742"
+    }
+  ]
+}

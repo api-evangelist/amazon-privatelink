@@ -1,0 +1,6 @@
+{
+  "VpcEndpointConnections": [
+    "example-VpcEndpointConnections_item"
+  ],
+  "NextToken": "example-NextToken"
+}

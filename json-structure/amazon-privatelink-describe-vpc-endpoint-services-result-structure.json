@@ -1,0 +1,26 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-describe-vpc-endpoint-services-result-structure.json",
+  "name": "DescribeVpcEndpointServicesResult",
+  "description": "DescribeVpcEndpointServicesResult schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "List of supported service names"
+    },
+    "ServiceDetails": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/ServiceDetail"
+      }
+    },
+    "NextToken": {
+      "type": "string",
+      "description": "Token for next page of results"
+    }
+  }
+}

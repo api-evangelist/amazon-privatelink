@@ -1,0 +1,24 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-schema/amazon-privatelink-modify-vpc-endpoint-service-configuration-request-schema.json",
+  "title": "ModifyVpcEndpointServiceConfigurationRequest",
+  "description": "ModifyVpcEndpointServiceConfigurationRequest schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceId": {
+      "type": "string",
+      "description": "ID of the endpoint service to modify"
+    },
+    "AcceptanceRequired": {
+      "type": "boolean",
+      "description": "Whether connections require acceptance"
+    },
+    "PrivateDnsName": {
+      "type": "string",
+      "description": "Private DNS name"
+    }
+  },
+  "required": [
+    "ServiceId"
+  ]
+}

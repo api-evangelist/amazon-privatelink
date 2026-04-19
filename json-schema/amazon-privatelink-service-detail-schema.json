@@ -1,0 +1,50 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-schema/amazon-privatelink-service-detail-schema.json",
+  "title": "ServiceDetail",
+  "description": "ServiceDetail schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceName": {
+      "type": "string",
+      "description": "Name of the endpoint service"
+    },
+    "ServiceId": {
+      "type": "string",
+      "description": "Unique ID of the endpoint service"
+    },
+    "ServiceType": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Type of service"
+    },
+    "AvailabilityZones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Availability zones"
+    },
+    "Owner": {
+      "type": "string",
+      "description": "Owner AWS account ID"
+    },
+    "BaseEndpointDnsNames": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Base DNS names for the endpoint service"
+    },
+    "PrivateDnsName": {
+      "type": "string",
+      "description": "Private DNS name"
+    },
+    "AcceptanceRequired": {
+      "type": "boolean",
+      "description": "Whether acceptance is required"
+    }
+  }
+}

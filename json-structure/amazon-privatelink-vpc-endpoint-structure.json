@@ -1,0 +1,72 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-vpc-endpoint-structure.json",
+  "name": "VpcEndpoint",
+  "description": "VpcEndpoint schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "VpcEndpointId": {
+      "type": "string",
+      "description": "ID of the VPC endpoint"
+    },
+    "VpcEndpointType": {
+      "type": "string",
+      "description": "Type of VPC endpoint"
+    },
+    "VpcId": {
+      "type": "string",
+      "description": "ID of the VPC"
+    },
+    "ServiceName": {
+      "type": "string",
+      "description": "Name of the service"
+    },
+    "State": {
+      "type": "string",
+      "enum": [
+        "PendingAcceptance",
+        "Pending",
+        "Available",
+        "Deleting",
+        "Deleted",
+        "Rejected",
+        "Failed",
+        "Expired"
+      ],
+      "description": "State of the endpoint"
+    },
+    "PolicyDocument": {
+      "type": "string",
+      "description": "Policy document"
+    },
+    "SubnetIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Subnet IDs for interface endpoints"
+    },
+    "NetworkInterfaceIds": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Network interface IDs"
+    },
+    "DnsEntries": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "properties": {
+          "DnsName": {
+            "type": "string"
+          },
+          "HostedZoneId": {
+            "type": "string"
+          }
+        }
+      },
+      "description": "DNS entries for the endpoint"
+    }
+  }
+}

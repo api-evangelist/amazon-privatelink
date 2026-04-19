@@ -1,0 +1,16 @@
+{
+  "ServiceName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+  "ServiceId": "vpce-364779",
+  "ServiceType": [
+    {}
+  ],
+  "AvailabilityZones": [
+    "us-east-1a"
+  ],
+  "Owner": "123456789012",
+  "BaseEndpointDnsNames": [
+    "com.amazonaws.vpce.us-east-1.vpce-svc-abc123"
+  ],
+  "PrivateDnsName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123",
+  "AcceptanceRequired": true
+}

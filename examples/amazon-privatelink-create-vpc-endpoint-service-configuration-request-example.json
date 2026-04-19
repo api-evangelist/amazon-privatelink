@@ -1,0 +1,10 @@
+{
+  "NetworkLoadBalancerArn": [
+    "arn:aws:elasticloadbalancing:us-east-1:123456789:loadbalancer/net/my-nlb/abc123"
+  ],
+  "GatewayLoadBalancerArn": [
+    "arn:aws:elasticloadbalancing:us-east-1:123456789:loadbalancer/net/my-nlb/abc123"
+  ],
+  "AcceptanceRequired": true,
+  "PrivateDnsName": "com.amazonaws.vpce.us-east-1.vpce-svc-abc123"
+}

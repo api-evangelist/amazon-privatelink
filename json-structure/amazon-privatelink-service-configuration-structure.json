@@ -1,0 +1,57 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-service-configuration-structure.json",
+  "name": "ServiceConfiguration",
+  "description": "ServiceConfiguration schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "ServiceType": {
+      "type": "array",
+      "items": {
+        "type": "object"
+      },
+      "description": "Type of service (Interface or Gateway)"
+    },
+    "ServiceId": {
+      "type": "string",
+      "description": "Unique ID of the endpoint service"
+    },
+    "ServiceName": {
+      "type": "string",
+      "description": "Name of the endpoint service"
+    },
+    "ServiceState": {
+      "type": "string",
+      "enum": [
+        "Pending",
+        "Available",
+        "Deleting",
+        "Deleted",
+        "Failed"
+      ],
+      "description": "State of the endpoint service"
+    },
+    "AcceptanceRequired": {
+      "type": "boolean",
+      "description": "Whether connections require acceptance"
+    },
+    "AvailabilityZones": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "Availability zones where the service is available"
+    },
+    "NetworkLoadBalancerArns": {
+      "type": "array",
+      "items": {
+        "type": "string"
+      },
+      "description": "ARNs of Network Load Balancers"
+    },
+    "PrivateDnsName": {
+      "type": "string",
+      "description": "Private DNS name"
+    }
+  }
+}

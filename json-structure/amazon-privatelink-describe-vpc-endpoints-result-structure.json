@@ -1,0 +1,18 @@
+{
+  "$schema": "https://json-structure.org/meta/core/v0/#",
+  "$id": "https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/json-structure/amazon-privatelink-describe-vpc-endpoints-result-structure.json",
+  "name": "DescribeVpcEndpointsResult",
+  "description": "DescribeVpcEndpointsResult schema from Amazon PrivateLink API",
+  "type": "object",
+  "properties": {
+    "VpcEndpoints": {
+      "type": "array",
+      "items": {
+        "$ref": "#/components/schemas/VpcEndpoint"
+      }
+    },
+    "NextToken": {
+      "type": "string"
+    }
+  }
+}

@@ -1,0 +1,150 @@
+vocabulary: "1.0.0"
+
+info:
+  provider: Amazon PrivateLink
+  description: Vocabulary for Amazon PrivateLink API covering endpoint services, VPC endpoints, and private connectivity management.
+  created: "2026-04-19"
+  modified: "2026-04-19"
+
+operational:
+  apis:
+    - namespace: amazon-privatelink
+      version: "2016-11-15"
+      baseUrl: https://ec2.{region}.amazonaws.com
+      status: active
+      description: Amazon PrivateLink private connectivity API (EC2 API subset)
+
+  resources:
+    - name: endpoint-services
+      api: amazon-privatelink
+      operations: [CreateVpcEndpointServiceConfiguration, DescribeVpcEndpointServices, ModifyVpcEndpointServiceConfiguration, DeleteVpcEndpointServiceConfigurations]
+    - name: endpoints
+      api: amazon-privatelink
+      operations: [CreateVpcEndpoint, DescribeVpcEndpoints, ModifyVpcEndpoint, DeleteVpcEndpoints]
+    - name: connections
+      api: amazon-privatelink
+      operations: [DescribeVpcEndpointConnections, AcceptVpcEndpointConnections, RejectVpcEndpointConnections]
+    - name: permissions
+      api: amazon-privatelink
+      operations: [ModifyVpcEndpointServicePermissions, DescribeVpcEndpointServicePermissions]
+
+  actions:
+    - verb: create
+      httpMethod: POST
+      pattern: write
+      count: 2
+    - verb: describe
+      httpMethod: GET
+      pattern: read
+      count: 4
+    - verb: modify
+      httpMethod: POST
+      pattern: write
+      count: 3
+    - verb: delete
+      httpMethod: POST
+      pattern: destructive
+      count: 2
+    - verb: accept
+      httpMethod: POST
+      pattern: write
+      count: 1
+    - verb: reject
+      httpMethod: POST
+      pattern: destructive
+      count: 1
+
+  schemas:
+    core:
+      - ServiceConfiguration
+      - ServiceDetail
+      - VpcEndpoint
+      - VpcEndpointConnection
+    requests:
+      - CreateVpcEndpointServiceConfigurationRequest
+      - CreateVpcEndpointRequest
+      - AcceptVpcEndpointConnectionsRequest
+
+  enums:
+    endpoint-types:
+      - Interface
+      - Gateway
+      - GatewayLoadBalancer
+    service-states:
+      - Pending
+      - Available
+      - Deleting
+      - Deleted
+      - Failed
+    endpoint-states:
+      - PendingAcceptance
+      - Pending
+      - Available
+      - Deleting
+      - Deleted
+      - Rejected
+      - Failed
+      - Expired
+
+  authentication:
+    schemes:
+      - AWS Signature Version 4 (SigV4)
+    description: All requests signed with SigV4 using ec2 signing name
+
+capability:
+  workflows:
+    - name: Private Connectivity
+      file: capabilities/private-connectivity.yaml
+      description: Private VPC connectivity workflow
+      apisUsed:
+        - Amazon PrivateLink API
+      personas:
+        - Network Engineer
+        - Platform Engineer
+
+  personas:
+    - id: network-engineer
+      name: Network Engineer
+      description: Manages VPC endpoint services and private connectivity architecture
+      workflows:
+        - Private Connectivity
+    - id: platform-engineer
+      name: Platform Engineer
+      description: Consumes endpoint services and manages VPC endpoints for internal services
+      workflows:
+        - Private Connectivity
+
+  domains:
+    - Networking
+    - Private Connectivity
+    - Security
+
+  namespaces:
+    - name: amazon-privatelink
+      type: consumed
+      baseUri: https://ec2.{region}.amazonaws.com
+    - name: private-connectivity-api
+      type: rest
+      port: 8080
+    - name: private-connectivity-mcp
+      type: mcp
+      port: 9090
+
+  binds:
+    - AWS_ACCESS_KEY_ID
+    - AWS_SECRET_ACCESS_KEY
+    - AWS_REGION
+
+crossReference:
+  - resource: endpoint-services
+    operations: [CreateVpcEndpointServiceConfiguration, DescribeVpcEndpointServices]
+    workflows: [Private Connectivity]
+    personas: [Network Engineer]
+  - resource: endpoints
+    operations: [CreateVpcEndpoint, DescribeVpcEndpoints]
+    workflows: [Private Connectivity]
+    personas: [Network Engineer, Platform Engineer]
+  - resource: connections
+    operations: [DescribeVpcEndpointConnections, AcceptVpcEndpointConnections, RejectVpcEndpointConnections]
+    workflows: [Private Connectivity]
+    personas: [Network Engineer]
