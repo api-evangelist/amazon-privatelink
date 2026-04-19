@@ -1,7 +1,7 @@
-# Amazon PrivateLink (amazon-privatelink)
+# Amazon PrivateLink
 AWS PrivateLink provides private connectivity between virtual private clouds (VPCs), AWS services, and your on-premises networks without exposing your traffic to the public internet. It makes it easy to connect services across different accounts and VPCs to simplify your network architecture while maintaining security and compliance.
 
-**URL:** [https://aws.amazon.com/privatelink/](https://aws.amazon.com/privatelink/)
+**URL:** [Visit APIs.json URL](https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml)
 
 **Run:** [Capabilities Using Naftiko](https://github.com/naftiko/fleet?utm_source=api-evangelist&utm_medium=readme&utm_campaign=company-api-evangelist&utm_content=repo)
 
@@ -50,6 +50,62 @@ The AWS PrivateLink API (part of Amazon EC2) provides programmatic access to cre
 - [SpectralRules](rules/amazon-privatelink-spectral-rules.yml)
 - [NaftikoCapability](capabilities/private-connectivity.yaml)
 - [Vocabulary](vocabulary/amazon-privatelink-vocabulary.yaml)
+- [JSON-LD](json-ld/amazon-privatelink-context.jsonld)
+- [JSONSchema](json-schema/amazon-privatelink-accept-vpc-endpoint-connections-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-create-vpc-endpoint-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-create-vpc-endpoint-result-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-create-vpc-endpoint-service-configuration-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-create-vpc-endpoint-service-configuration-result-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-delete-vpc-endpoints-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-describe-vpc-endpoint-connections-result-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-describe-vpc-endpoint-services-result-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-describe-vpc-endpoints-result-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-modify-vpc-endpoint-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-modify-vpc-endpoint-service-configuration-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-modify-vpc-endpoint-service-permissions-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-reject-vpc-endpoint-connections-request-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-service-configuration-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-service-detail-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-vpc-endpoint-connection-schema.json)
+- [JSONSchema](json-schema/amazon-privatelink-vpc-endpoint-schema.json)
+- [JSONStructure](json-structure/amazon-privatelink-accept-vpc-endpoint-connections-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-create-vpc-endpoint-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-create-vpc-endpoint-result-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-create-vpc-endpoint-service-configuration-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-create-vpc-endpoint-service-configuration-result-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-delete-vpc-endpoints-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-describe-vpc-endpoint-connections-result-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-describe-vpc-endpoint-services-result-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-describe-vpc-endpoints-result-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-modify-vpc-endpoint-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-modify-vpc-endpoint-service-configuration-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-modify-vpc-endpoint-service-permissions-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-reject-vpc-endpoint-connections-request-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-service-configuration-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-service-detail-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-vpc-endpoint-connection-structure.json)
+- [JSONStructure](json-structure/amazon-privatelink-vpc-endpoint-structure.json)
+- [Example](examples/amazon-privatelink-accept-vpc-endpoint-connections-request-example.json)
+- [Example](examples/amazon-privatelink-create-vpc-endpoint-request-example.json)
+- [Example](examples/amazon-privatelink-create-vpc-endpoint-result-example.json)
+- [Example](examples/amazon-privatelink-create-vpc-endpoint-service-configuration-request-example.json)
+- [Example](examples/amazon-privatelink-create-vpc-endpoint-service-configuration-result-example.json)
+- [Example](examples/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-example.json)
+- [Example](examples/amazon-privatelink-delete-vpc-endpoints-request-example.json)
+- [Example](examples/amazon-privatelink-describe-vpc-endpoint-connections-result-example.json)
+- [Example](examples/amazon-privatelink-describe-vpc-endpoint-services-result-example.json)
+- [Example](examples/amazon-privatelink-describe-vpc-endpoints-result-example.json)
+- [Example](examples/amazon-privatelink-modify-vpc-endpoint-request-example.json)
+- [Example](examples/amazon-privatelink-modify-vpc-endpoint-service-configuration-request-example.json)
+- [Example](examples/amazon-privatelink-modify-vpc-endpoint-service-permissions-request-example.json)
+- [Example](examples/amazon-privatelink-reject-vpc-endpoint-connections-request-example.json)
+- [Example](examples/amazon-privatelink-service-configuration-example.json)
+- [Example](examples/amazon-privatelink-service-detail-example.json)
+- [Example](examples/amazon-privatelink-vpc-endpoint-connection-example.json)
+- [Example](examples/amazon-privatelink-vpc-endpoint-example.json)
+- [NaftikoCapability](capabilities/shared/amazon-privatelink.yaml)
 
 ## Features
 
@@ -90,23 +146,53 @@ Machine-readable API specifications organized by format.
 
 ### OpenAPI
 
-- [Amazon PrivateLink OpenAPI (13 operations)](openapi/amazon-privatelink-openapi.yaml)
+- [amazon-privatelink-openapi.yaml](openapi/amazon-privatelink-openapi.yaml)
 
 ### JSON Schema
 
-18 schema files covering VPC endpoint services, endpoints, connections, and permissions.
+- [amazon-privatelink-accept-vpc-endpoint-connections-request-schema.json](json-schema/amazon-privatelink-accept-vpc-endpoint-connections-request-schema.json)
+- [amazon-privatelink-create-vpc-endpoint-request-schema.json](json-schema/amazon-privatelink-create-vpc-endpoint-request-schema.json)
+- [amazon-privatelink-create-vpc-endpoint-result-schema.json](json-schema/amazon-privatelink-create-vpc-endpoint-result-schema.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-request-schema.json](json-schema/amazon-privatelink-create-vpc-endpoint-service-configuration-request-schema.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-result-schema.json](json-schema/amazon-privatelink-create-vpc-endpoint-service-configuration-result-schema.json)
+- [amazon-privatelink-delete-vpc-endpoint-service-configurations-request-schema.json](json-schema/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-schema.json)
+- [amazon-privatelink-delete-vpc-endpoints-request-schema.json](json-schema/amazon-privatelink-delete-vpc-endpoints-request-schema.json)
+- [amazon-privatelink-describe-vpc-endpoint-connections-result-schema.json](json-schema/amazon-privatelink-describe-vpc-endpoint-connections-result-schema.json)
+- [amazon-privatelink-describe-vpc-endpoint-services-result-schema.json](json-schema/amazon-privatelink-describe-vpc-endpoint-services-result-schema.json)
+- [amazon-privatelink-describe-vpc-endpoints-result-schema.json](json-schema/amazon-privatelink-describe-vpc-endpoints-result-schema.json)
+- ...and 8 more
 
 ### JSON Structure
 
-18 JSON Structure files converted from JSON Schema with strict typing.
+- [amazon-privatelink-accept-vpc-endpoint-connections-request-structure.json](json-structure/amazon-privatelink-accept-vpc-endpoint-connections-request-structure.json)
+- [amazon-privatelink-create-vpc-endpoint-request-structure.json](json-structure/amazon-privatelink-create-vpc-endpoint-request-structure.json)
+- [amazon-privatelink-create-vpc-endpoint-result-structure.json](json-structure/amazon-privatelink-create-vpc-endpoint-result-structure.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-request-structure.json](json-structure/amazon-privatelink-create-vpc-endpoint-service-configuration-request-structure.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-result-structure.json](json-structure/amazon-privatelink-create-vpc-endpoint-service-configuration-result-structure.json)
+- [amazon-privatelink-delete-vpc-endpoint-service-configurations-request-structure.json](json-structure/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-structure.json)
+- [amazon-privatelink-delete-vpc-endpoints-request-structure.json](json-structure/amazon-privatelink-delete-vpc-endpoints-request-structure.json)
+- [amazon-privatelink-describe-vpc-endpoint-connections-result-structure.json](json-structure/amazon-privatelink-describe-vpc-endpoint-connections-result-structure.json)
+- [amazon-privatelink-describe-vpc-endpoint-services-result-structure.json](json-structure/amazon-privatelink-describe-vpc-endpoint-services-result-structure.json)
+- [amazon-privatelink-describe-vpc-endpoints-result-structure.json](json-structure/amazon-privatelink-describe-vpc-endpoints-result-structure.json)
+- ...and 8 more
 
 ### JSON-LD
 
-- [Amazon PrivateLink Context](json-ld/amazon-privatelink-context.jsonld)
+- [amazon-privatelink-context.jsonld](json-ld/amazon-privatelink-context.jsonld)
 
 ### Examples
 
-18 example JSON files generated from JSON Schema definitions.
+- [amazon-privatelink-accept-vpc-endpoint-connections-request-example.json](examples/amazon-privatelink-accept-vpc-endpoint-connections-request-example.json)
+- [amazon-privatelink-create-vpc-endpoint-request-example.json](examples/amazon-privatelink-create-vpc-endpoint-request-example.json)
+- [amazon-privatelink-create-vpc-endpoint-result-example.json](examples/amazon-privatelink-create-vpc-endpoint-result-example.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-request-example.json](examples/amazon-privatelink-create-vpc-endpoint-service-configuration-request-example.json)
+- [amazon-privatelink-create-vpc-endpoint-service-configuration-result-example.json](examples/amazon-privatelink-create-vpc-endpoint-service-configuration-result-example.json)
+- [amazon-privatelink-delete-vpc-endpoint-service-configurations-request-example.json](examples/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-example.json)
+- [amazon-privatelink-delete-vpc-endpoints-request-example.json](examples/amazon-privatelink-delete-vpc-endpoints-request-example.json)
+- [amazon-privatelink-describe-vpc-endpoint-connections-result-example.json](examples/amazon-privatelink-describe-vpc-endpoint-connections-result-example.json)
+- [amazon-privatelink-describe-vpc-endpoint-services-result-example.json](examples/amazon-privatelink-describe-vpc-endpoint-services-result-example.json)
+- [amazon-privatelink-describe-vpc-endpoints-result-example.json](examples/amazon-privatelink-describe-vpc-endpoints-result-example.json)
+- ...and 8 more
 
 ## Capabilities
 
@@ -114,24 +200,23 @@ Naftiko capabilities organized as shared per-API definitions composed into custo
 
 ### Shared Per-API Definitions
 
-- [Amazon PrivateLink API](capabilities/shared/amazon-privatelink.yaml) — 7 operations for private connectivity
+- [amazon-privatelink.yaml](capabilities/shared/amazon-privatelink.yaml)
 
 ### Workflow Capabilities
 
-| Workflow | APIs Combined | Tools | Persona |
-|----------|--------------|-------|---------|
-| [Private Connectivity](capabilities/private-connectivity.yaml) | AWS PrivateLink API | 7 | Network Engineer, Platform Engineer |
+- [private-connectivity.yaml](capabilities/private-connectivity.yaml)
 
 ## Vocabulary
 
-- [Amazon PrivateLink Vocabulary](vocabulary/amazon-privatelink-vocabulary.yaml) — Unified taxonomy mapping resources, actions, workflows, and personas across operational (OpenAPI) and capability (Naftiko) dimensions
+- [amazon-privatelink-vocabulary.yaml](vocabulary/amazon-privatelink-vocabulary.yaml)
 
 ## Rules
 
-- [Amazon PrivateLink Spectral Rules](rules/amazon-privatelink-spectral-rules.yml) — 16 rules across 8 categories enforcing Amazon PrivateLink API conventions
+- [amazon-privatelink-spectral-rules.yml](rules/amazon-privatelink-spectral-rules.yml)
 
 ## Maintainers
 
 **FN:** Kin Lane
 
 **Email:** kin@apievangelist.com
+
