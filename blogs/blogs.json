@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-privatelink",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/networking-and-content-delivery/tag/aws-privatelink/",
+      "feed_url": "https://aws.amazon.com/blogs/networking-and-content-delivery/tag/aws-privatelink/feed/",
+      "saved": 10,
+      "title": "AWS PrivateLink \u2013 Networking & Content Delivery"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:40Z"
+}
