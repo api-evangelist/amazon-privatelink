@@ -110,7 +110,7 @@ common:
     description: Back endpoint services with NLBs for high availability and automatic scaling.
   - name: AWS Marketplace
     description: Subscribe to AWS Marketplace services and connect privately using PrivateLink.
-- type: JSON-LD
+- type: JSONLD
   url: json-ld/amazon-privatelink-context.jsonld
 - type: JSONSchema
   url: json-schema/amazon-privatelink-accept-vpc-endpoint-connections-request-schema.json
