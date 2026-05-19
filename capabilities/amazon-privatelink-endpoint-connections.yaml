@@ -1,0 +1,177 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon PrivateLink API — Endpoint Connections
+  description: 'Amazon PrivateLink API — Endpoint Connections. 3 operations. Lead operation: Amazon PrivateLink Accept VPC
+    Endpoint Connections. Self-contained Naftiko capability covering one Amazon Privatelink business surface.'
+  tags:
+  - Amazon Privatelink
+  - Endpoint Connections
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_PRIVATELINK_API_KEY: AMAZON_PRIVATELINK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-privatelink-endpoint-connections
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon PrivateLink API — Endpoint Connections business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=AcceptVpcEndpointConnections
+      path: /?Action=AcceptVpcEndpointConnections
+      operations:
+      - name: acceptvpcendpointconnections
+        method: POST
+        description: Amazon PrivateLink Accept VPC Endpoint Connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    - name: ?Action=DescribeVpcEndpointConnections
+      path: /?Action=DescribeVpcEndpointConnections
+      operations:
+      - name: describevpcendpointconnections
+        method: GET
+        description: Amazon PrivateLink Describe VPC Endpoint Connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: Filter
+          in: query
+          type: array
+          description: Filters for connections
+        - name: MaxResults
+          in: query
+          type: integer
+          description: Maximum number of results
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+    - name: ?Action=RejectVpcEndpointConnections
+      path: /?Action=RejectVpcEndpointConnections
+      operations:
+      - name: rejectvpcendpointconnections
+        method: POST
+        description: Amazon PrivateLink Reject VPC Endpoint Connections
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_PRIVATELINK_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-privatelink-endpoint-connections-rest
+    port: 8080
+    description: REST adapter for Amazon PrivateLink API — Endpoint Connections. One Spectral-compliant resource per consumed
+      operation, prefixed with /v1.
+    resources:
+    - path: /v1/action-acceptvpcendpointconnections
+      name: action-acceptvpcendpointconnections
+      description: REST surface for ?Action=AcceptVpcEndpointConnections.
+      operations:
+      - method: POST
+        name: acceptvpcendpointconnections
+        description: Amazon PrivateLink Accept VPC Endpoint Connections
+        call: amazon-privatelink-endpoint-connections.acceptvpcendpointconnections
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-describevpcendpointconnections
+      name: action-describevpcendpointconnections
+      description: REST surface for ?Action=DescribeVpcEndpointConnections.
+      operations:
+      - method: GET
+        name: describevpcendpointconnections
+        description: Amazon PrivateLink Describe VPC Endpoint Connections
+        call: amazon-privatelink-endpoint-connections.describevpcendpointconnections
+        with:
+          Filter: rest.Filter
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-rejectvpcendpointconnections
+      name: action-rejectvpcendpointconnections
+      description: REST surface for ?Action=RejectVpcEndpointConnections.
+      operations:
+      - method: POST
+        name: rejectvpcendpointconnections
+        description: Amazon PrivateLink Reject VPC Endpoint Connections
+        call: amazon-privatelink-endpoint-connections.rejectvpcendpointconnections
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-privatelink-endpoint-connections-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon PrivateLink API — Endpoint Connections. One tool per consumed operation, routed inline
+      through this capability's consumes block.
+    tools:
+    - name: amazon-privatelink-accept-vpc-endpoint
+      description: Amazon PrivateLink Accept VPC Endpoint Connections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-privatelink-endpoint-connections.acceptvpcendpointconnections
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-privatelink-describe-vpc-endpoint
+      description: Amazon PrivateLink Describe VPC Endpoint Connections
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-privatelink-endpoint-connections.describevpcendpointconnections
+      with:
+        Filter: tools.Filter
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-privatelink-reject-vpc-endpoint
+      description: Amazon PrivateLink Reject VPC Endpoint Connections
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-privatelink-endpoint-connections.rejectvpcendpointconnections
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.

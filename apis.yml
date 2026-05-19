@@ -1,6 +1,7 @@
 name: Amazon PrivateLink
-description: AWS PrivateLink provides private connectivity between virtual private clouds (VPCs), AWS services, and your on-premises networks without exposing your traffic to the public internet. It 
-  makes it easy to connect services across different accounts and VPCs to simplify your network architecture while maintaining security and compliance.
+description: AWS PrivateLink provides private connectivity between virtual private clouds (VPCs), AWS services, and your on-premises
+  networks without exposing your traffic to the public internet. It makes it easy to connect services across different accounts
+  and VPCs to simplify your network architecture while maintaining security and compliance.
 url: https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml
 type: Index
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
@@ -13,11 +14,11 @@ tags:
 - Zero Trust
 - Endpoint Services
 created: '2026-03-16'
-modified: '2026-04-19'
+modified: '2026-05-19'
 apis:
 - name: AWS PrivateLink API
-  description: The AWS PrivateLink API (part of Amazon EC2) provides programmatic access to create and manage VPC endpoint services, VPC endpoints, and endpoint connections for private AWS service 
-    connectivity without internet exposure.
+  description: The AWS PrivateLink API (part of Amazon EC2) provides programmatic access to create and manage VPC endpoint
+    services, VPC endpoints, and endpoint connections for private AWS service connectivity without internet exposure.
   humanURL: https://aws.amazon.com/privatelink/
   baseURL: https://ec2.amazonaws.com
   tags:
@@ -41,6 +42,14 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
+  - type: NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-connections.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-services.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-privatelink-principals.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/privatelink/
@@ -64,8 +73,6 @@ common:
   url: https://health.aws.amazon.com/health/status
 - type: SpectralRules
   url: rules/amazon-privatelink-spectral-rules.yml
-- type: NaftikoCapability
-  url: capabilities/private-connectivity.yaml
 - type: Vocabulary
   url: vocabulary/amazon-privatelink-vocabulary.yaml
 - type: Features
@@ -220,20 +227,18 @@ common:
   url: examples/amazon-privatelink-vpc-endpoint-connection-example.json
 - type: Example
   url: examples/amazon-privatelink-vpc-endpoint-example.json
-- type: NaftikoCapability
-  url: capabilities/shared/amazon-privatelink.yaml
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

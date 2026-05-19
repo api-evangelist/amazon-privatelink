@@ -1,0 +1,136 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon PrivateLink API — Principals
+  description: 'Amazon PrivateLink API — Principals. 2 operations. Lead operation: Amazon PrivateLink Describe VPC Endpoint
+    Service Permissions. Self-contained Naftiko capability covering one Amazon Privatelink business surface.'
+  tags:
+  - Amazon Privatelink
+  - Principals
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_PRIVATELINK_API_KEY: AMAZON_PRIVATELINK_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-privatelink-principals
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon PrivateLink API — Principals business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=DescribeVpcEndpointServicePermissions
+      path: /?Action=DescribeVpcEndpointServicePermissions
+      operations:
+      - name: describevpcendpointservicepermissions
+        method: GET
+        description: Amazon PrivateLink Describe VPC Endpoint Service Permissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: ServiceId
+          in: query
+          type: string
+          description: The ID of the endpoint service
+          required: true
+        - name: MaxResults
+          in: query
+          type: integer
+          description: Maximum number of results
+        - name: NextToken
+          in: query
+          type: string
+          description: Pagination token
+    - name: ?Action=ModifyVpcEndpointServicePermissions
+      path: /?Action=ModifyVpcEndpointServicePermissions
+      operations:
+      - name: modifyvpcendpointservicepermissions
+        method: POST
+        description: Amazon PrivateLink Modify VPC Endpoint Service Permissions
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: body
+          in: body
+          type: object
+          description: Request body (JSON).
+          required: true
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_PRIVATELINK_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-privatelink-principals-rest
+    port: 8080
+    description: REST adapter for Amazon PrivateLink API — Principals. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/action-describevpcendpointservicepermissions
+      name: action-describevpcendpointservicepermissions
+      description: REST surface for ?Action=DescribeVpcEndpointServicePermissions.
+      operations:
+      - method: GET
+        name: describevpcendpointservicepermissions
+        description: Amazon PrivateLink Describe VPC Endpoint Service Permissions
+        call: amazon-privatelink-principals.describevpcendpointservicepermissions
+        with:
+          ServiceId: rest.ServiceId
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-modifyvpcendpointservicepermissions
+      name: action-modifyvpcendpointservicepermissions
+      description: REST surface for ?Action=ModifyVpcEndpointServicePermissions.
+      operations:
+      - method: POST
+        name: modifyvpcendpointservicepermissions
+        description: Amazon PrivateLink Modify VPC Endpoint Service Permissions
+        call: amazon-privatelink-principals.modifyvpcendpointservicepermissions
+        with:
+          body: rest.body
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-privatelink-principals-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon PrivateLink API — Principals. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-privatelink-describe-vpc-endpoint
+      description: Amazon PrivateLink Describe VPC Endpoint Service Permissions
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-privatelink-principals.describevpcendpointservicepermissions
+      with:
+        ServiceId: tools.ServiceId
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-privatelink-modify-vpc-endpoint
+      description: Amazon PrivateLink Modify VPC Endpoint Service Permissions
+      hints:
+        readOnly: false
+        destructive: false
+        idempotent: false
+      call: amazon-privatelink-principals.modifyvpcendpointservicepermissions
+      with:
+        body: tools.body
+      outputParameters:
+      - type: object
+        mapping: $.
