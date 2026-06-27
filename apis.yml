@@ -42,13 +42,13 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-endpoint-connections.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-endpoint-services.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-principals.yaml
-  - type: NaftikoCapability
+  - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
 - type: Portal
@@ -67,7 +67,7 @@ common:
   url: https://github.com/aws
 - type: Console
   url: https://console.aws.amazon.com/vpc/
-- type: SignUp
+- type: Signup
   url: https://portal.aws.amazon.com/billing/signup
 - type: StatusPage
   url: https://health.aws.amazon.com/health/status
@@ -191,41 +191,41 @@ common:
   url: json-structure/amazon-privatelink-vpc-endpoint-connection-structure.json
 - type: JSONStructure
   url: json-structure/amazon-privatelink-vpc-endpoint-structure.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-accept-vpc-endpoint-connections-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-create-vpc-endpoint-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-create-vpc-endpoint-result-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-create-vpc-endpoint-service-configuration-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-create-vpc-endpoint-service-configuration-result-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-delete-vpc-endpoint-service-configurations-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-delete-vpc-endpoints-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-describe-vpc-endpoint-connections-result-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-describe-vpc-endpoint-services-result-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-describe-vpc-endpoints-result-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-modify-vpc-endpoint-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-modify-vpc-endpoint-service-configuration-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-modify-vpc-endpoint-service-permissions-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-reject-vpc-endpoint-connections-request-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-service-configuration-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-service-detail-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-vpc-endpoint-connection-example.json
-- type: Example
+- type: Examples
   url: examples/amazon-privatelink-vpc-endpoint-example.json
 - type: Integrations
   url: https://aws.amazon.com/marketplace/
