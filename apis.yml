@@ -51,6 +51,14 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
+- type: TrustCenter
+  url: security/amazon-privatelink-trust-center.yml
+- type: VulnerabilityDisclosure
+  url: security/amazon-privatelink-vulnerability-disclosure.yml
+- type: DomainSecurity
+  url: security/amazon-privatelink-domain-security.yml
+- type: Authentication
+  url: authentication/amazon-privatelink-authentication.yml
 - type: Portal
   url: https://aws.amazon.com/privatelink/
 - type: Documentation
