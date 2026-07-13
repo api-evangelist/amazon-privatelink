@@ -1,5 +1,21 @@
+# amazon-privatelink — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on amazonaws.com
+#   - query-params-casing: pascal @ 100% (n=12)
+#   - operationid-casing: pascal @ 100% (n=13)
+#   - schema-names-casing: pascal @ 100% (n=18)
+#   - schema-properties-casing: pascal @ 100% (n=65)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - merge: kept 16 existing, added 6 measured, upgraded 0
+#   - added: servers-https-only, servers-expected-domain, query-params-casing, operationid-casing, schema-names-casing, schema-properties-casing
+extends:
+  - spectral:oas
 rules:
-
   info-title-required:
     description: API must have a title
     severity: error
@@ -7,7 +23,6 @@ rules:
     then:
       field: title
       function: truthy
-
   info-description-required:
     description: API must have a description
     severity: error
@@ -15,7 +30,6 @@ rules:
     then:
       field: description
       function: truthy
-
   info-version-required:
     description: API version must be defined
     severity: error
@@ -23,7 +37,6 @@ rules:
     then:
       field: version
       function: truthy
-
   openapi-version-3:
     description: API should use OpenAPI 3.x
     severity: error
@@ -31,8 +44,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^3\\."
-
+        match: ^3\.
   servers-defined:
     description: Servers must be defined
     severity: error
@@ -40,7 +52,6 @@ rules:
     then:
       field: servers
       function: truthy
-
   operation-summary-required:
     description: All operations must have a summary
     severity: error
@@ -48,7 +59,6 @@ rules:
     then:
       field: summary
       function: truthy
-
   operation-summary-amazon-privatelink-prefix:
     description: Summaries should start with Amazon PrivateLink
     message: Operation summary should start with 'Amazon PrivateLink'
@@ -57,8 +67,7 @@ rules:
     then:
       function: pattern
       functionOptions:
-        match: "^Amazon PrivateLink"
-
+        match: ^Amazon PrivateLink
   operation-description-required:
     description: All operations must have a description
     severity: error
@@ -66,7 +75,6 @@ rules:
     then:
       field: description
       function: truthy
-
   operation-id-required:
     description: All operations must have an operationId
     severity: error
@@ -74,7 +82,6 @@ rules:
     then:
       field: operationId
       function: truthy
-
   operation-tags-required:
     description: All operations must have tags
     severity: warn
@@ -82,7 +89,6 @@ rules:
     then:
       field: tags
       function: truthy
-
   response-success-required:
     description: All operations must have a success response
     severity: error
@@ -90,7 +96,6 @@ rules:
     then:
       field: responses
       function: truthy
-
   response-description-required:
     description: All responses must have descriptions
     severity: error
@@ -98,7 +103,6 @@ rules:
     then:
       field: description
       function: truthy
-
   schema-type-defined:
     description: Schemas should define a type
     severity: warn
@@ -106,7 +110,6 @@ rules:
     then:
       field: type
       function: truthy
-
   security-schemes-defined:
     description: Security schemes must be defined
     severity: error
@@ -114,7 +117,6 @@ rules:
     then:
       field: securitySchemes
       function: truthy
-
   security-global-defined:
     description: Global security must be defined
     severity: warn
@@ -122,10 +124,60 @@ rules:
     then:
       field: security
       function: truthy
-
   no-empty-descriptions:
     description: Descriptions must not be empty
     severity: warn
     given: $..description
     then:
       function: truthy
+  servers-https-only:
+    description: Server URLs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://
+  servers-expected-domain:
+    description: Server URLs should be on the amazonaws.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: amazonaws\.com
+  query-params-casing:
+    description: Query parameters should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: pascal
+  operationid-casing:
+    description: Operation IDs should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
