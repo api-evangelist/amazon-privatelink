@@ -1,0 +1,200 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/amazon-privatelink-openapi.yaml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 13
+  by_action_class:
+    acting: 9
+    connected: 4
+  by_consequence:
+    write: 9
+    read: 4
+  human_in_the_loop_required: 0
+operations:
+- path: /?Action=CreateVpcEndpointServiceConfiguration
+  method: post
+  operationId: CreateVpcEndpointServiceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DescribeVpcEndpointServices
+  method: get
+  operationId: DescribeVpcEndpointServices
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=ModifyVpcEndpointServiceConfiguration
+  method: post
+  operationId: ModifyVpcEndpointServiceConfiguration
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DeleteVpcEndpointServiceConfigurations
+  method: post
+  operationId: DeleteVpcEndpointServiceConfigurations
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=CreateVpcEndpoint
+  method: post
+  operationId: CreateVpcEndpoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DescribeVpcEndpoints
+  method: get
+  operationId: DescribeVpcEndpoints
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=ModifyVpcEndpoint
+  method: post
+  operationId: ModifyVpcEndpoint
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DeleteVpcEndpoints
+  method: post
+  operationId: DeleteVpcEndpoints
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DescribeVpcEndpointConnections
+  method: get
+  operationId: DescribeVpcEndpointConnections
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=AcceptVpcEndpointConnections
+  method: post
+  operationId: AcceptVpcEndpointConnections
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=RejectVpcEndpointConnections
+  method: post
+  operationId: RejectVpcEndpointConnections
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=ModifyVpcEndpointServicePermissions
+  method: post
+  operationId: ModifyVpcEndpointServicePermissions
+  x-agentic-access:
+    action-class: acting
+    consequence: write
+    subject: required
+    audience: null
+    token:
+      max-ttl: 900
+    escalation:
+      human-in-the-loop: conditional
+      triggers:
+      - abnormal
+      - high-value
+    audit: required
+- path: /?Action=DescribeVpcEndpointServicePermissions
+  method: get
+  operationId: DescribeVpcEndpointServicePermissions
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

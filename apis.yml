@@ -51,6 +51,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
+- type: AgenticAccess
+  url: agentic-access/amazon-privatelink-agentic-access.yml
 - type: TrustCenter
   url: security/amazon-privatelink-trust-center.yml
 - type: VulnerabilityDisclosure
