@@ -1,0 +1,153 @@
+openapi: 3.0.3
+info:
+  title: Amazon PrivateLink Endpoint Connections API
+  description: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.
+  version: '2016-11-15'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-generated-from: documentation
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 regional endpoint (PrivateLink operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- sigv4: []
+tags:
+- name: Endpoint Connections
+  description: Endpoint connection management
+paths:
+  /?Action=DescribeVpcEndpointConnections:
+    get:
+      operationId: DescribeVpcEndpointConnections
+      summary: Amazon PrivateLink Describe VPC Endpoint Connections
+      description: Describes the VPC endpoint connections to your VPC endpoint services.
+      tags:
+      - Endpoint Connections
+      parameters:
+      - name: Filter
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filters for connections
+      - name: MaxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of results
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+      responses:
+        '200':
+          description: VPC endpoint connections retrieved
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeVpcEndpointConnectionsResult'
+  /?Action=AcceptVpcEndpointConnections:
+    post:
+      operationId: AcceptVpcEndpointConnections
+      summary: Amazon PrivateLink Accept VPC Endpoint Connections
+      description: Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.
+      tags:
+      - Endpoint Connections
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/AcceptVpcEndpointConnectionsRequest'
+      responses:
+        '200':
+          description: Endpoint connections accepted
+  /?Action=RejectVpcEndpointConnections:
+    post:
+      operationId: RejectVpcEndpointConnections
+      summary: Amazon PrivateLink Reject VPC Endpoint Connections
+      description: Rejects one or more VPC endpoint connection requests to your VPC endpoint service.
+      tags:
+      - Endpoint Connections
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/RejectVpcEndpointConnectionsRequest'
+      responses:
+        '200':
+          description: Endpoint connections rejected
+components:
+  schemas:
+    RejectVpcEndpointConnectionsRequest:
+      type: object
+      required:
+      - ServiceId
+      - VpcEndpointId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to reject
+    VpcEndpointConnection:
+      type: object
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: string
+          description: ID of the VPC endpoint
+        VpcEndpointOwner:
+          type: string
+          description: AWS account ID of the endpoint owner
+        VpcEndpointState:
+          type: string
+          description: State of the endpoint
+        CreationTimestamp:
+          type: string
+          format: date-time
+          description: Time the connection was created
+    DescribeVpcEndpointConnectionsResult:
+      type: object
+      properties:
+        VpcEndpointConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpointConnection'
+        NextToken:
+          type: string
+    AcceptVpcEndpointConnectionsRequest:
+      type: object
+      required:
+      - ServiceId
+      - VpcEndpointId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to accept
+  securitySchemes:
+    sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4

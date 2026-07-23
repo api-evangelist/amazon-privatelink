@@ -1,0 +1,254 @@
+openapi: 3.0.3
+info:
+  title: Amazon PrivateLink Endpoint Connections Endpoint Services API
+  description: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.
+  version: '2016-11-15'
+  contact:
+    name: AWS Support
+    url: https://aws.amazon.com/premiumsupport/
+  license:
+    name: Apache 2.0
+    url: https://www.apache.org/licenses/LICENSE-2.0.html
+  x-generated-from: documentation
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 regional endpoint (PrivateLink operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS region
+security:
+- sigv4: []
+tags:
+- name: Endpoint Services
+  description: VPC endpoint services (provider side)
+paths:
+  /?Action=CreateVpcEndpointServiceConfiguration:
+    post:
+      operationId: CreateVpcEndpointServiceConfiguration
+      summary: Amazon PrivateLink Create VPC Endpoint Service Configuration
+      description: Creates a VPC endpoint service configuration to which service consumers can connect.
+      tags:
+      - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/CreateVpcEndpointServiceConfigurationRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configuration created
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateVpcEndpointServiceConfigurationResult'
+        '400':
+          description: Bad request
+  /?Action=DescribeVpcEndpointServices:
+    get:
+      operationId: DescribeVpcEndpointServices
+      summary: Amazon PrivateLink Describe VPC Endpoint Services
+      description: Describes available VPC endpoint services including AWS marketplace services.
+      tags:
+      - Endpoint Services
+      parameters:
+      - name: Filter
+        in: query
+        schema:
+          type: array
+          items:
+            type: string
+        description: Filters to apply to the endpoint service list
+      - name: MaxResults
+        in: query
+        schema:
+          type: integer
+        description: Maximum number of results to return
+      - name: NextToken
+        in: query
+        schema:
+          type: string
+        description: Pagination token
+      responses:
+        '200':
+          description: VPC endpoint services retrieved
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeVpcEndpointServicesResult'
+  /?Action=ModifyVpcEndpointServiceConfiguration:
+    post:
+      operationId: ModifyVpcEndpointServiceConfiguration
+      summary: Amazon PrivateLink Modify VPC Endpoint Service Configuration
+      description: Modifies the attributes of a VPC endpoint service configuration.
+      tags:
+      - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/ModifyVpcEndpointServiceConfigurationRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configuration modified
+  /?Action=DeleteVpcEndpointServiceConfigurations:
+    post:
+      operationId: DeleteVpcEndpointServiceConfigurations
+      summary: Amazon PrivateLink Delete VPC Endpoint Service Configurations
+      description: Deletes VPC endpoint service configurations.
+      tags:
+      - Endpoint Services
+      requestBody:
+        required: true
+        content:
+          application/x-www-form-urlencoded:
+            schema:
+              $ref: '#/components/schemas/DeleteVpcEndpointServiceConfigurationsRequest'
+      responses:
+        '200':
+          description: VPC endpoint service configurations deleted
+components:
+  schemas:
+    CreateVpcEndpointServiceConfigurationResult:
+      type: object
+      properties:
+        ServiceConfiguration:
+          $ref: '#/components/schemas/ServiceConfiguration'
+    ServiceDetail:
+      type: object
+      properties:
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service
+        AvailabilityZones:
+          type: array
+          items:
+            type: string
+          description: Availability zones
+        Owner:
+          type: string
+          description: Owner AWS account ID
+        BaseEndpointDnsNames:
+          type: array
+          items:
+            type: string
+          description: Base DNS names for the endpoint service
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+        AcceptanceRequired:
+          type: boolean
+          description: Whether acceptance is required
+    DeleteVpcEndpointServiceConfigurationsRequest:
+      type: object
+      required:
+      - ServiceId
+      properties:
+        ServiceId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoint services to delete
+    CreateVpcEndpointServiceConfigurationRequest:
+      type: object
+      properties:
+        NetworkLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers for the endpoint service
+        GatewayLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Gateway Load Balancers for the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connection requests require manual acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name for the endpoint service
+    ServiceConfiguration:
+      type: object
+      properties:
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service (Interface or Gateway)
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceState:
+          type: string
+          enum:
+          - Pending
+          - Available
+          - Deleting
+          - Deleted
+          - Failed
+          description: State of the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        AvailabilityZones:
+          type: array
+          items:
+            type: string
+          description: Availability zones where the service is available
+        NetworkLoadBalancerArns:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+    DescribeVpcEndpointServicesResult:
+      type: object
+      properties:
+        ServiceNames:
+          type: array
+          items:
+            type: string
+          description: List of supported service names
+        ServiceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDetail'
+        NextToken:
+          type: string
+          description: Token for next page of results
+    ModifyVpcEndpointServiceConfigurationRequest:
+      type: object
+      required:
+      - ServiceId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service to modify
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
+  securitySchemes:
+    sigv4:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4
