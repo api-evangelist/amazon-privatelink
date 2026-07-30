@@ -4,6 +4,19 @@ description: AWS PrivateLink provides private connectivity between virtual priva
   and VPCs to simplify your network architecture while maintaining security and compliance.
 url: https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml
 type: Index
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 tags:
 - AWS
@@ -16,22 +29,108 @@ tags:
 created: '2026-03-16'
 modified: '2026-05-19'
 apis:
-- name: AWS PrivateLink API
-  description: The AWS PrivateLink API (part of Amazon EC2) provides programmatic access to create and manage VPC endpoint
-    services, VPC endpoints, and endpoint connections for private AWS service connectivity without internet exposure.
+- aid: amazon-privatelink:amazon-privatelink-endpoint-connections-api
+  name: Amazon PrivateLink Endpoint Connections API
+  description: Endpoint connection management
   humanURL: https://aws.amazon.com/privatelink/
   baseURL: https://ec2.amazonaws.com
   tags:
-  - Networking
-  - Private Connectivity
-  - VPC
-  - Endpoint Services
-  - Security
+  - Endpoint Connections
   properties:
+  - type: OpenAPI
+    url: openapi/amazon-privatelink-endpoint-connections-api-openapi.yml
   - type: Documentation
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/privatelink/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/privatelink/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/privatelink/faqs/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-connections.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-services.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-principals.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
+- aid: amazon-privatelink:amazon-privatelink-endpoint-services-api
+  name: Amazon PrivateLink Endpoint Services API
+  description: VPC endpoint services (provider side)
+  humanURL: https://aws.amazon.com/privatelink/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Endpoint Services
+  properties:
   - type: OpenAPI
-    url: openapi/amazon-privatelink-openapi.yaml
+    url: openapi/amazon-privatelink-endpoint-services-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/privatelink/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/privatelink/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/privatelink/faqs/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-connections.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-services.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-principals.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
+- aid: amazon-privatelink:amazon-privatelink-principals-api
+  name: Amazon PrivateLink Principals API
+  description: Endpoint service principal management
+  humanURL: https://aws.amazon.com/privatelink/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Principals
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-privatelink-principals-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
+  - type: GettingStarted
+    url: https://aws.amazon.com/privatelink/getting-started/
+  - type: Pricing
+    url: https://aws.amazon.com/privatelink/pricing/
+  - type: FAQ
+    url: https://aws.amazon.com/privatelink/faqs/
+  - type: Authentication
+    url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
+  - type: RateLimits
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-connections.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-endpoint-services.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-principals.yaml
+  - type: X-NaftikoCapability
+    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
+- aid: amazon-privatelink:amazon-privatelink-vpc-endpoints-api
+  name: Amazon PrivateLink VPC Endpoints API
+  description: VPC endpoints (consumer side)
+  humanURL: https://aws.amazon.com/privatelink/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - VPC Endpoints
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-privatelink-vpc-endpoints-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/vpc/latest/privatelink/what-is-privatelink.html
   - type: GettingStarted
     url: https://aws.amazon.com/privatelink/getting-started/
   - type: Pricing
@@ -51,6 +150,8 @@ apis:
   - type: X-NaftikoCapability
     url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
+- type: PostmanWorkspace
+  url: https://www.postman.com/kinlaneapi/amazon-privatelink/overview
 - type: AgenticAccess
   url: agentic-access/amazon-privatelink-agentic-access.yml
 - type: TrustCenter
