@@ -1,0 +1,643 @@
+{
+  "info": {
+    "_postman_id": "481144c3-76ec-4adb-8556-252714db22b7",
+    "name": "Amazon PrivateLink Endpoint Connections Endpoint Services API",
+    "description": "AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:51:24.000Z",
+    "updatedAt": "2026-07-28T00:51:24.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-481144c3-76ec-4adb-8556-252714db22b7"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateVpcEndpointServiceConfiguration",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Create VPC Endpoint Service Configuration",
+          "id": "70c08626-b4ed-49e8-9265-80ce4f975a81",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              },
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "ARNs of Network Load Balancers for the endpoint service",
+                  "key": "NetworkLoadBalancerArn",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ARNs of Network Load Balancers for the endpoint service",
+                  "key": "NetworkLoadBalancerArn",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                  "key": "GatewayLoadBalancerArn",
+                  "value": "<string>"
+                },
+                {
+                  "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                  "key": "GatewayLoadBalancerArn",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether connection requests require manual acceptance",
+                  "key": "AcceptanceRequired",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Private DNS name for the endpoint service",
+                  "key": "PrivateDnsName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateVpcEndpointServiceConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateVpcEndpointServiceConfiguration"
+                }
+              ]
+            },
+            "description": "Creates a VPC endpoint service configuration to which service consumers can connect."
+          },
+          "response": [
+            {
+              "id": "d217149e-e759-494a-82e0-2449c2accf39",
+              "name": "VPC endpoint service configuration created",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "ARNs of Network Load Balancers for the endpoint service",
+                      "key": "NetworkLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Network Load Balancers for the endpoint service",
+                      "key": "NetworkLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                      "key": "GatewayLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                      "key": "GatewayLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether connection requests require manual acceptance",
+                      "key": "AcceptanceRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Private DNS name for the endpoint service",
+                      "key": "PrivateDnsName",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ServiceConfiguration>\n    <ServiceType>\n    </ServiceType>\n    <ServiceType>\n    </ServiceType>\n    <ServiceId>(string)</ServiceId>\n    <ServiceName>(string)</ServiceName>\n    <ServiceState>(string)</ServiceState>\n    <AcceptanceRequired>(boolean)</AcceptanceRequired>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <NetworkLoadBalancerArns>(string)</NetworkLoadBalancerArns>\n    <NetworkLoadBalancerArns>(string)</NetworkLoadBalancerArns>\n    <PrivateDnsName>(string)</PrivateDnsName>\n  </ServiceConfiguration>\n</element>",
+              "createdAt": "2026-07-28T00:51:24.000Z",
+              "updatedAt": "2026-07-28T00:51:24.000Z",
+              "uid": "35240-d217149e-e759-494a-82e0-2449c2accf39"
+            },
+            {
+              "id": "8baa4e6d-c946-4b53-aae4-7f2d2dc446d2",
+              "name": "Bad request",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "ARNs of Network Load Balancers for the endpoint service",
+                      "key": "NetworkLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Network Load Balancers for the endpoint service",
+                      "key": "NetworkLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                      "key": "GatewayLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "ARNs of Gateway Load Balancers for the endpoint service",
+                      "key": "GatewayLoadBalancerArn",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether connection requests require manual acceptance",
+                      "key": "AcceptanceRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Private DNS name for the endpoint service",
+                      "key": "PrivateDnsName",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:51:24.000Z",
+              "updatedAt": "2026-07-28T00:51:24.000Z",
+              "uid": "35240-8baa4e6d-c946-4b53-aae4-7f2d2dc446d2"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:24.000Z",
+          "updatedAt": "2026-07-28T00:51:24.000Z",
+          "uid": "35240-70c08626-b4ed-49e8-9265-80ce4f975a81"
+        }
+      ],
+      "id": "645fa545-9813-4523-ad09-4287d4b041b2",
+      "createdAt": "2026-07-28T00:51:24.000Z",
+      "updatedAt": "2026-07-28T00:51:24.000Z",
+      "uid": "35240-645fa545-9813-4523-ad09-4287d4b041b2"
+    },
+    {
+      "name": "?Action=DescribeVpcEndpointServices",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Describe VPC Endpoint Services",
+          "id": "53402a63-27d8-41de-bb0b-6f43fe3d6e21",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeVpcEndpointServices&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeVpcEndpointServices"
+                },
+                {
+                  "description": "Filters to apply to the endpoint service list",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the endpoint service list",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes available VPC endpoint services including AWS marketplace services."
+          },
+          "response": [
+            {
+              "id": "b5681199-dee7-488e-a01c-dd0fb82696c6",
+              "name": "VPC endpoint services retrieved",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters to apply to the endpoint service list",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <ServiceNames>(string)</ServiceNames>\n  <ServiceNames>(string)</ServiceNames>\n  <ServiceDetails>\n    <ServiceName>(string)</ServiceName>\n    <ServiceId>(string)</ServiceId>\n    <ServiceType>\n    </ServiceType>\n    <ServiceType>\n    </ServiceType>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <Owner>(string)</Owner>\n    <BaseEndpointDnsNames>(string)</BaseEndpointDnsNames>\n    <BaseEndpointDnsNames>(string)</BaseEndpointDnsNames>\n    <PrivateDnsName>(string)</PrivateDnsName>\n    <AcceptanceRequired>(boolean)</AcceptanceRequired>\n  </ServiceDetails>\n  <ServiceDetails>\n    <ServiceName>(string)</ServiceName>\n    <ServiceId>(string)</ServiceId>\n    <ServiceType>\n    </ServiceType>\n    <ServiceType>\n    </ServiceType>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <AvailabilityZones>(string)</AvailabilityZones>\n    <Owner>(string)</Owner>\n    <BaseEndpointDnsNames>(string)</BaseEndpointDnsNames>\n    <BaseEndpointDnsNames>(string)</BaseEndpointDnsNames>\n    <PrivateDnsName>(string)</PrivateDnsName>\n    <AcceptanceRequired>(boolean)</AcceptanceRequired>\n  </ServiceDetails>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T00:51:24.000Z",
+              "updatedAt": "2026-07-28T00:51:24.000Z",
+              "uid": "35240-b5681199-dee7-488e-a01c-dd0fb82696c6"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:24.000Z",
+          "updatedAt": "2026-07-28T00:51:24.000Z",
+          "uid": "35240-53402a63-27d8-41de-bb0b-6f43fe3d6e21"
+        }
+      ],
+      "id": "5542a6ff-1e20-4e02-8e40-13f128b29435",
+      "createdAt": "2026-07-28T00:51:24.000Z",
+      "updatedAt": "2026-07-28T00:51:24.000Z",
+      "uid": "35240-5542a6ff-1e20-4e02-8e40-13f128b29435"
+    },
+    {
+      "name": "?Action=ModifyVpcEndpointServiceConfiguration",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Modify VPC Endpoint Service Configuration",
+          "id": "d4d5b5ab-d5f4-4ba8-802c-c5eece9e87e9",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) ID of the endpoint service to modify",
+                  "key": "ServiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Whether connections require acceptance",
+                  "key": "AcceptanceRequired",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Private DNS name",
+                  "key": "PrivateDnsName",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ModifyVpcEndpointServiceConfiguration",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ModifyVpcEndpointServiceConfiguration"
+                }
+              ]
+            },
+            "description": "Modifies the attributes of a VPC endpoint service configuration."
+          },
+          "response": [
+            {
+              "id": "c3008b8a-e899-4551-988b-a35437eb1822",
+              "name": "VPC endpoint service configuration modified",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ID of the endpoint service to modify",
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Whether connections require acceptance",
+                      "key": "AcceptanceRequired",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Private DNS name",
+                      "key": "PrivateDnsName",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:51:24.000Z",
+              "updatedAt": "2026-07-28T00:51:24.000Z",
+              "uid": "35240-c3008b8a-e899-4551-988b-a35437eb1822"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:24.000Z",
+          "updatedAt": "2026-07-28T00:51:24.000Z",
+          "uid": "35240-d4d5b5ab-d5f4-4ba8-802c-c5eece9e87e9"
+        }
+      ],
+      "id": "d5b916cd-e177-4813-8d56-257df5ee90d2",
+      "createdAt": "2026-07-28T00:51:24.000Z",
+      "updatedAt": "2026-07-28T00:51:24.000Z",
+      "uid": "35240-d5b916cd-e177-4813-8d56-257df5ee90d2"
+    },
+    {
+      "name": "?Action=DeleteVpcEndpointServiceConfigurations",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Delete VPC Endpoint Service Configurations",
+          "id": "32544e90-eba0-479e-ab77-6ef2658f535e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) IDs of endpoint services to delete",
+                  "key": "ServiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) IDs of endpoint services to delete",
+                  "key": "ServiceId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteVpcEndpointServiceConfigurations",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteVpcEndpointServiceConfigurations"
+                }
+              ]
+            },
+            "description": "Deletes VPC endpoint service configurations."
+          },
+          "response": [
+            {
+              "id": "f2e34b1b-bc13-4363-9786-a40fd2aa2364",
+              "name": "VPC endpoint service configurations deleted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) IDs of endpoint services to delete",
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) IDs of endpoint services to delete",
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:51:24.000Z",
+              "updatedAt": "2026-07-28T00:51:24.000Z",
+              "uid": "35240-f2e34b1b-bc13-4363-9786-a40fd2aa2364"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:24.000Z",
+          "updatedAt": "2026-07-28T00:51:24.000Z",
+          "uid": "35240-32544e90-eba0-479e-ab77-6ef2658f535e"
+        }
+      ],
+      "id": "42f6c2d4-b161-494a-b3dd-9b69ee247e9f",
+      "createdAt": "2026-07-28T00:51:24.000Z",
+      "updatedAt": "2026-07-28T00:51:24.000Z",
+      "uid": "35240-42f6c2d4-b161-494a-b3dd-9b69ee247e9f"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

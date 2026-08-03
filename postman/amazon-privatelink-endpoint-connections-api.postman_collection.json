@@ -1,0 +1,415 @@
+{
+  "info": {
+    "_postman_id": "70b7bfad-c1f5-4412-88b0-57e715005a3b",
+    "name": "Amazon PrivateLink Endpoint Connections API",
+    "description": "AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.\n\nContact Support:\n Name: AWS Support",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:51:23.000Z",
+    "updatedAt": "2026-07-28T00:51:23.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-70b7bfad-c1f5-4412-88b0-57e715005a3b"
+  },
+  "item": [
+    {
+      "name": "?Action=DescribeVpcEndpointConnections",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Describe VPC Endpoint Connections",
+          "id": "44b3748e-b76d-4672-947b-9963d5cd58ae",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeVpcEndpointConnections&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeVpcEndpointConnections"
+                },
+                {
+                  "description": "Filters for connections",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters for connections",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Pagination token",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes the VPC endpoint connections to your VPC endpoint services."
+          },
+          "response": [
+            {
+              "id": "2b34b2b3-872e-4ebc-a9c3-2aae7b52e5c0",
+              "name": "VPC endpoint connections retrieved",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "Filters for connections",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Pagination token",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <VpcEndpointConnections>\n    <ServiceId>(string)</ServiceId>\n    <VpcEndpointId>(string)</VpcEndpointId>\n    <VpcEndpointOwner>(string)</VpcEndpointOwner>\n    <VpcEndpointState>(string)</VpcEndpointState>\n    <CreationTimestamp>(string)</CreationTimestamp>\n  </VpcEndpointConnections>\n  <VpcEndpointConnections>\n    <ServiceId>(string)</ServiceId>\n    <VpcEndpointId>(string)</VpcEndpointId>\n    <VpcEndpointOwner>(string)</VpcEndpointOwner>\n    <VpcEndpointState>(string)</VpcEndpointState>\n    <CreationTimestamp>(string)</CreationTimestamp>\n  </VpcEndpointConnections>\n  <NextToken>(string)</NextToken>\n</element>",
+              "createdAt": "2026-07-28T00:51:23.000Z",
+              "updatedAt": "2026-07-28T00:51:23.000Z",
+              "uid": "35240-2b34b2b3-872e-4ebc-a9c3-2aae7b52e5c0"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:23.000Z",
+          "updatedAt": "2026-07-28T00:51:23.000Z",
+          "uid": "35240-44b3748e-b76d-4672-947b-9963d5cd58ae"
+        }
+      ],
+      "id": "a0866f8b-9954-4d0a-bd8f-ed195359f2b6",
+      "createdAt": "2026-07-28T00:51:23.000Z",
+      "updatedAt": "2026-07-28T00:51:23.000Z",
+      "uid": "35240-a0866f8b-9954-4d0a-bd8f-ed195359f2b6"
+    },
+    {
+      "name": "?Action=AcceptVpcEndpointConnections",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Accept VPC Endpoint Connections",
+          "id": "7c12f68a-86c9-4f85-80c3-3e2e9c6a0aa0",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) ID of the endpoint service",
+                  "key": "ServiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) IDs of endpoints to accept",
+                  "key": "VpcEndpointId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) IDs of endpoints to accept",
+                  "key": "VpcEndpointId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=AcceptVpcEndpointConnections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AcceptVpcEndpointConnections"
+                }
+              ]
+            },
+            "description": "Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service."
+          },
+          "response": [
+            {
+              "id": "e144c47d-bcb8-4626-ae23-a71cbae4fdf4",
+              "name": "Endpoint connections accepted",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ID of the endpoint service",
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) IDs of endpoints to accept",
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) IDs of endpoints to accept",
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:51:23.000Z",
+              "updatedAt": "2026-07-28T00:51:23.000Z",
+              "uid": "35240-e144c47d-bcb8-4626-ae23-a71cbae4fdf4"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:23.000Z",
+          "updatedAt": "2026-07-28T00:51:23.000Z",
+          "uid": "35240-7c12f68a-86c9-4f85-80c3-3e2e9c6a0aa0"
+        }
+      ],
+      "id": "81d449cb-0e3f-4488-a56e-ee2d4430851d",
+      "createdAt": "2026-07-28T00:51:23.000Z",
+      "updatedAt": "2026-07-28T00:51:23.000Z",
+      "uid": "35240-81d449cb-0e3f-4488-a56e-ee2d4430851d"
+    },
+    {
+      "name": "?Action=RejectVpcEndpointConnections",
+      "item": [
+        {
+          "name": "Amazon PrivateLink Reject VPC Endpoint Connections",
+          "id": "2791bdb9-8f4e-4681-86e0-1acf87fad31e",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "description": "(Required) ID of the endpoint service",
+                  "key": "ServiceId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) IDs of endpoints to reject",
+                  "key": "VpcEndpointId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) IDs of endpoints to reject",
+                  "key": "VpcEndpointId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{baseUrl}}/?Action=RejectVpcEndpointConnections",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "RejectVpcEndpointConnections"
+                }
+              ]
+            },
+            "description": "Rejects one or more VPC endpoint connection requests to your VPC endpoint service."
+          },
+          "response": [
+            {
+              "id": "bcbe2c50-a4b7-4e5c-b81e-a5efe2612194",
+              "name": "Endpoint connections rejected",
+              "originalRequest": {
+                "method": "POST",
+                "header": [
+                  {
+                    "key": "Content-Type",
+                    "value": "application/x-www-form-urlencoded"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "description": "(Required) ID of the endpoint service",
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) IDs of endpoints to reject",
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) IDs of endpoints to reject",
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    }
+                  ]
+                },
+                "url": {
+                  "raw": "{{baseUrl}}/",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:51:23.000Z",
+              "updatedAt": "2026-07-28T00:51:23.000Z",
+              "uid": "35240-bcbe2c50-a4b7-4e5c-b81e-a5efe2612194"
+            }
+          ],
+          "createdAt": "2026-07-28T00:51:23.000Z",
+          "updatedAt": "2026-07-28T00:51:23.000Z",
+          "uid": "35240-2791bdb9-8f4e-4681-86e0-1acf87fad31e"
+        }
+      ],
+      "id": "40030ed8-1595-4364-8df0-86f8545bed6d",
+      "createdAt": "2026-07-28T00:51:23.000Z",
+      "updatedAt": "2026-07-28T00:51:23.000Z",
+      "uid": "35240-40030ed8-1595-4364-8df0-86f8545bed6d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

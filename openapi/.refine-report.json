@@ -1,0 +1,20 @@
+{
+  "provider": "amazon-privatelink",
+  "sources": [
+    "amazon-privatelink-endpoint-connections-api-openapi.yml",
+    "amazon-privatelink-endpoint-services-api-openapi.yml",
+    "amazon-privatelink-principals-api-openapi.yml",
+    "amazon-privatelink-vpc-endpoints-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-privatelink-endpoint-connections-api-openapi.yml",
+    "amazon-privatelink-endpoint-services-api-openapi.yml",
+    "amazon-privatelink-principals-api-openapi.yml",
+    "amazon-privatelink-vpc-endpoints-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
