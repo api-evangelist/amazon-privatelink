@@ -51,14 +51,6 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-connections.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-services.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-principals.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 - aid: amazon-privatelink:amazon-privatelink-endpoint-services-api
   name: Amazon PrivateLink Endpoint Services API
   description: VPC endpoint services (provider side)
@@ -81,14 +73,6 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-connections.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-services.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-principals.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 - aid: amazon-privatelink:amazon-privatelink-principals-api
   name: Amazon PrivateLink Principals API
   description: Endpoint service principal management
@@ -111,14 +95,6 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-connections.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-services.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-principals.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 - aid: amazon-privatelink:amazon-privatelink-vpc-endpoints-api
   name: Amazon PrivateLink VPC Endpoints API
   description: VPC endpoints (consumer side)
@@ -141,14 +117,6 @@ apis:
     url: https://docs.aws.amazon.com/general/latest/gr/signature-version-4.html
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-connections.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-endpoint-services.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-principals.yaml
-  - type: X-NaftikoCapability
-    url: capabilities/amazon-privatelink-vpc-endpoints.yaml
 common:
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-privatelink/overview
