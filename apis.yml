@@ -4,6 +4,7 @@ description: AWS PrivateLink provides private connectivity between virtual priva
   and VPCs to simplify your network architecture while maintaining security and compliance.
 url: https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml
 type: Index
+specificationVersion: '0.23'
 accessModel:
   pricing: freemium
   onboarding: self-serve
