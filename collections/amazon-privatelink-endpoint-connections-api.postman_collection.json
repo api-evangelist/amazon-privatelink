@@ -1,0 +1,490 @@
+{
+  "item": [
+    {
+      "id": "30877864-60a5-4f59-b7dc-82eb9864369f",
+      "name": "Endpoint Connections",
+      "description": {
+        "content": "Endpoint connection management",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "a877856d-848c-49c3-826d-bad8d869c239",
+          "name": "Amazon PrivateLink Describe VPC Endpoint Connections",
+          "request": {
+            "name": "Amazon PrivateLink Describe VPC Endpoint Connections",
+            "description": {
+              "content": "Describes the VPC endpoint connections to your VPC endpoint services.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeVpcEndpointConnections"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters for connections"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters for connections"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Pagination token"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "a25efe38-0deb-40e1-9c5a-e458c7c196a4",
+              "name": "VPC endpoint connections retrieved",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <VpcEndpointConnections>\n    <ServiceId>(string)</ServiceId>\n    <VpcEndpointId>(string)</VpcEndpointId>\n    <VpcEndpointOwner>(string)</VpcEndpointOwner>\n    <VpcEndpointState>(string)</VpcEndpointState>\n    <CreationTimestamp>(string)</CreationTimestamp>\n  </VpcEndpointConnections>\n  <VpcEndpointConnections>\n    <ServiceId>(string)</ServiceId>\n    <VpcEndpointId>(string)</VpcEndpointId>\n    <VpcEndpointOwner>(string)</VpcEndpointOwner>\n    <VpcEndpointState>(string)</VpcEndpointState>\n    <CreationTimestamp>(string)</CreationTimestamp>\n  </VpcEndpointConnections>\n  <NextToken>(string)</NextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "9cc76c9e-ddaa-43e6-b48a-c9f4456cd848",
+          "name": "Amazon PrivateLink Accept VPC Endpoint Connections",
+          "request": {
+            "name": "Amazon PrivateLink Accept VPC Endpoint Connections",
+            "description": {
+              "content": "Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AcceptVpcEndpointConnections"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ServiceId",
+                  "value": "<string>",
+                  "description": "(Required) ID of the endpoint service"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcEndpointId",
+                  "value": "<string>",
+                  "description": "(Required) IDs of endpoints to accept"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcEndpointId",
+                  "value": "<string>",
+                  "description": "(Required) IDs of endpoints to accept"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "12e38a75-d067-43b8-ac1c-8c63d7acd030",
+              "name": "Endpoint connections accepted",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ID of the endpoint service",
+                        "type": "text/plain"
+                      },
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) IDs of endpoints to accept",
+                        "type": "text/plain"
+                      },
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) IDs of endpoints to accept",
+                        "type": "text/plain"
+                      },
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "f520c05d-8f0b-4cd8-bfde-0c4bb623ce5c",
+          "name": "Amazon PrivateLink Reject VPC Endpoint Connections",
+          "request": {
+            "name": "Amazon PrivateLink Reject VPC Endpoint Connections",
+            "description": {
+              "content": "Rejects one or more VPC endpoint connection requests to your VPC endpoint service.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "RejectVpcEndpointConnections"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/x-www-form-urlencoded"
+              }
+            ],
+            "method": "POST",
+            "auth": null,
+            "body": {
+              "mode": "urlencoded",
+              "urlencoded": [
+                {
+                  "disabled": false,
+                  "key": "ServiceId",
+                  "value": "<string>",
+                  "description": "(Required) ID of the endpoint service"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcEndpointId",
+                  "value": "<string>",
+                  "description": "(Required) IDs of endpoints to reject"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcEndpointId",
+                  "value": "<string>",
+                  "description": "(Required) IDs of endpoints to reject"
+                }
+              ]
+            }
+          },
+          "response": [
+            {
+              "id": "518c34fa-493f-479c-b96b-de16ccac0182",
+              "name": "Endpoint connections rejected",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [],
+                  "variable": [
+                    {
+                      "description": "AWS region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "POST",
+                "body": {
+                  "mode": "urlencoded",
+                  "urlencoded": [
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) ID of the endpoint service",
+                        "type": "text/plain"
+                      },
+                      "key": "ServiceId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) IDs of endpoints to reject",
+                        "type": "text/plain"
+                      },
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    },
+                    {
+                      "disabled": false,
+                      "description": {
+                        "content": "(Required) IDs of endpoints to reject",
+                        "type": "text/plain"
+                      },
+                      "key": "VpcEndpointId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://ec2.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "c915e4b3-a635-4927-a987-ebf37b103ad7",
+    "name": "Amazon PrivateLink Endpoint Connections API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.\n\nContact Support:\n Name: AWS Support",
+      "type": "text/plain"
+    }
+  }
+}

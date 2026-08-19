@@ -1,0 +1,87 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon PrivateLink Endpoint Connections API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Endpoint Connections",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon PrivateLink Describe VPC Endpoint Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeVpcEndpointConnections",
+            "params": [
+              {
+                "name": "Filter",
+                "value": "",
+                "type": "query",
+                "description": "Filters for connections"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Describes the VPC endpoint connections to your VPC endpoint services."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Accept VPC Endpoint Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=AcceptVpcEndpointConnections",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Accepts one or more interface VPC endpoint connection requests to your VPC endpoint service."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Reject VPC Endpoint Connections",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=RejectVpcEndpointConnections",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Rejects one or more VPC endpoint connection requests to your VPC endpoint service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

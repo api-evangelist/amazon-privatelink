@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon PrivateLink Endpoint Connections Endpoint Services API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Endpoint Services",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon PrivateLink Create VPC Endpoint Service Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateVpcEndpointServiceConfiguration",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Creates a VPC endpoint service configuration to which service consumers can connect."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Describe VPC Endpoint Services",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeVpcEndpointServices",
+            "params": [
+              {
+                "name": "Filter",
+                "value": "",
+                "type": "query",
+                "description": "Filters to apply to the endpoint service list"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Describes available VPC endpoint services including AWS marketplace services."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Modify VPC Endpoint Service Configuration",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=ModifyVpcEndpointServiceConfiguration",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Modifies the attributes of a VPC endpoint service configuration."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Delete VPC Endpoint Service Configurations",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DeleteVpcEndpointServiceConfigurations",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Deletes VPC endpoint service configurations."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

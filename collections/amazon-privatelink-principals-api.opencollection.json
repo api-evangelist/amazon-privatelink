@@ -1,0 +1,72 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon PrivateLink Endpoint Connections Principals API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Principals",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon PrivateLink Modify VPC Endpoint Service Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=ModifyVpcEndpointServicePermissions",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Modifies the permissions for a VPC endpoint service, adding or removing principal ARNs."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Describe VPC Endpoint Service Permissions",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeVpcEndpointServicePermissions",
+            "params": [
+              {
+                "name": "ServiceId",
+                "value": "",
+                "type": "query",
+                "description": "The ID of the endpoint service"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Describes the principals (service consumers) that are permitted to discover or connect to your endpoint service."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

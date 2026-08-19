@@ -1,0 +1,102 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon PrivateLink Endpoint Connections VPC Endpoints API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VPC Endpoints",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon PrivateLink Create VPC Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateVpcEndpoint",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Creates a VPC endpoint for a specified service, enabling private connectivity from your VPC."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Describe VPC Endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeVpcEndpoints",
+            "params": [
+              {
+                "name": "Filter",
+                "value": "",
+                "type": "query",
+                "description": "Filters for the endpoint list"
+              },
+              {
+                "name": "MaxResults",
+                "value": "",
+                "type": "query",
+                "description": "Maximum number of results"
+              },
+              {
+                "name": "NextToken",
+                "value": "",
+                "type": "query",
+                "description": "Pagination token"
+              }
+            ]
+          },
+          "docs": "Describes VPC endpoints in your account."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Modify VPC Endpoint",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=ModifyVpcEndpoint",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Modifies attributes of a VPC endpoint."
+        },
+        {
+          "info": {
+            "name": "Amazon PrivateLink Delete VPC Endpoints",
+            "type": "http"
+          },
+          "http": {
+            "method": "POST",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DeleteVpcEndpoints",
+            "body": {
+              "type": "form-urlencoded",
+              "data": []
+            }
+          },
+          "docs": "Deletes VPC endpoints."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
