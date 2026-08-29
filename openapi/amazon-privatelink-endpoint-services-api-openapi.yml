@@ -1,4 +1,4 @@
-openapi: 3.0.3
+openapi: 3.2.0
 info:
   title: Amazon PrivateLink Endpoint Connections Endpoint Services API
   description: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.
@@ -111,11 +111,54 @@ paths:
           description: VPC endpoint service configurations deleted
 components:
   schemas:
+    ModifyVpcEndpointServiceConfigurationRequest:
+      type: object
+      required:
+      - ServiceId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service to modify
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
     CreateVpcEndpointServiceConfigurationResult:
       type: object
       properties:
         ServiceConfiguration:
           $ref: '#/components/schemas/ServiceConfiguration'
+    CreateVpcEndpointServiceConfigurationRequest:
+      type: object
+      properties:
+        NetworkLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers for the endpoint service
+        GatewayLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Gateway Load Balancers for the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connection requests require manual acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name for the endpoint service
+    DeleteVpcEndpointServiceConfigurationsRequest:
+      type: object
+      required:
+      - ServiceId
+      properties:
+        ServiceId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoint services to delete
     ServiceDetail:
       type: object
       properties:
@@ -149,35 +192,21 @@ components:
         AcceptanceRequired:
           type: boolean
           description: Whether acceptance is required
-    DeleteVpcEndpointServiceConfigurationsRequest:
-      type: object
-      required:
-      - ServiceId
-      properties:
-        ServiceId:
-          type: array
-          items:
-            type: string
-          description: IDs of endpoint services to delete
-    CreateVpcEndpointServiceConfigurationRequest:
+    DescribeVpcEndpointServicesResult:
       type: object
       properties:
-        NetworkLoadBalancerArn:
+        ServiceNames:
           type: array
           items:
             type: string
-          description: ARNs of Network Load Balancers for the endpoint service
-        GatewayLoadBalancerArn:
+          description: List of supported service names
+        ServiceDetails:
           type: array
           items:
-            type: string
-          description: ARNs of Gateway Load Balancers for the endpoint service
-        AcceptanceRequired:
-          type: boolean
-          description: Whether connection requests require manual acceptance
-        PrivateDnsName:
+            $ref: '#/components/schemas/ServiceDetail'
+        NextToken:
           type: string
-          description: Private DNS name for the endpoint service
+          description: Token for next page of results
     ServiceConfiguration:
       type: object
       properties:
@@ -214,35 +243,6 @@ components:
           items:
             type: string
           description: ARNs of Network Load Balancers
-        PrivateDnsName:
-          type: string
-          description: Private DNS name
-    DescribeVpcEndpointServicesResult:
-      type: object
-      properties:
-        ServiceNames:
-          type: array
-          items:
-            type: string
-          description: List of supported service names
-        ServiceDetails:
-          type: array
-          items:
-            $ref: '#/components/schemas/ServiceDetail'
-        NextToken:
-          type: string
-          description: Token for next page of results
-    ModifyVpcEndpointServiceConfigurationRequest:
-      type: object
-      required:
-      - ServiceId
-      properties:
-        ServiceId:
-          type: string
-          description: ID of the endpoint service to modify
-        AcceptanceRequired:
-          type: boolean
-          description: Whether connections require acceptance
         PrivateDnsName:
           type: string
           description: Private DNS name
