@@ -1,7 +1,8 @@
 name: Amazon PrivateLink
-description: AWS PrivateLink provides private connectivity between virtual private clouds (VPCs), AWS services, and your on-premises
-  networks without exposing your traffic to the public internet. It makes it easy to connect services across different accounts
-  and VPCs to simplify your network architecture while maintaining security and compliance.
+description: AWS PrivateLink provides private connectivity between virtual private clouds (VPCs), AWS
+  services, and your on-premises networks without exposing your traffic to the public internet. It makes
+  it easy to connect services across different accounts and VPCs to simplify your network architecture
+  while maintaining security and compliance.
 url: https://raw.githubusercontent.com/api-evangelist/amazon-privatelink/refs/heads/main/apis.yml
 type: Index
 deliveryModel:
@@ -41,7 +42,7 @@ tags:
 - Zero Trust
 - Endpoint Services
 created: '2026-03-16'
-modified: '2026-05-19'
+modified: '2026-09-16'
 apis:
 - aid: amazon-privatelink:amazon-privatelink-endpoint-connections-api
   name: Amazon PrivateLink Endpoint Connections API
@@ -132,6 +133,8 @@ apis:
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
 common:
+- type: Website
+  url: https://amazon.com
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-privatelink/overview
 - type: AgenticAccess
@@ -171,21 +174,26 @@ common:
 - type: Features
   data:
   - name: Private VPC Endpoints
-    description: Connect to AWS services and endpoint services without using public IP addresses or internet gateways.
+    description: Connect to AWS services and endpoint services without using public IP addresses or internet
+      gateways.
   - name: VPC Endpoint Services
     description: Expose services running in your VPC to other VPCs and accounts using Network Load Balancers.
   - name: Interface Endpoints
-    description: Elastic network interfaces with private IP addresses that serve as entry points for supported services.
+    description: Elastic network interfaces with private IP addresses that serve as entry points for supported
+      services.
   - name: Gateway Endpoints
     description: Route table targets for S3 and DynamoDB traffic without using internet gateways.
   - name: Cross-Account Connectivity
     description: Enable service consumers in other AWS accounts to access your endpoint services privately.
   - name: Acceptance Control
-    description: Control which service consumers can connect to your endpoint service with acceptance required settings.
+    description: Control which service consumers can connect to your endpoint service with acceptance
+      required settings.
   - name: Private DNS
-    description: Configure private DNS names for interface endpoints to simplify connectivity without code changes.
+    description: Configure private DNS names for interface endpoints to simplify connectivity without
+      code changes.
   - name: Endpoint Policies
-    description: Control access to services through endpoint policy documents for fine-grained access control.
+    description: Control access to services through endpoint policy documents for fine-grained access
+      control.
 - type: UseCases
   data:
   - name: SaaS Service Delivery
@@ -197,7 +205,8 @@ common:
   - name: Third-Party Service Integration
     description: Connect to marketplace services and partner APIs without public internet routing.
   - name: On-Premises Private Access
-    description: Access AWS services from on-premises networks via VPN or Direct Connect without public endpoints.
+    description: Access AWS services from on-premises networks via VPN or Direct Connect without public
+      endpoints.
 - type: Integrations
   data:
   - name: AWS VPC
