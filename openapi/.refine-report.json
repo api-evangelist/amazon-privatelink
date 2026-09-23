@@ -1,10 +1,7 @@
 {
   "provider": "amazon-privatelink",
   "sources": [
-    "amazon-privatelink-endpoint-connections-api-openapi.yml",
-    "amazon-privatelink-endpoint-services-api-openapi.yml",
-    "amazon-privatelink-principals-api-openapi.yml",
-    "amazon-privatelink-vpc-endpoints-api-openapi.yml"
+    "_ae-authored/amazon-privatelink-openapi.yaml"
   ],
   "outputs": [
     "amazon-privatelink-endpoint-connections-api-openapi.yml",
@@ -16,7 +13,14 @@
   "errors": [],
   "warnings": [],
   "notes": [
+    "sourced from openapi/_original/ (0 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-privatelink-openapi.yaml: upgraded openapi 3.0.3 -> OpenAPI 3.2.0",
     "apis.yml register: already-registered"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-privatelink-endpoint-connections-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-privatelink-endpoint-services-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-privatelink-principals-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-privatelink-vpc-endpoints-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

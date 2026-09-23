@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon PrivateLink Endpoint Connections VPC Endpoints API
+  title: Amazon PrivateLink VPC Endpoints API
   description: AWS PrivateLink provides private connectivity between VPCs, AWS services, and on-premises networks without exposing traffic to the public internet. This API covers VPC endpoint services, VPC endpoints, and endpoint connections.
   version: '2016-11-15'
   contact:
@@ -109,6 +109,15 @@ paths:
           description: VPC endpoints deleted
 components:
   schemas:
+    DescribeVpcEndpointsResult:
+      type: object
+      properties:
+        VpcEndpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpoint'
+        NextToken:
+          type: string
     ModifyVpcEndpointRequest:
       type: object
       required:
@@ -133,20 +142,41 @@ components:
           items:
             type: string
           description: IDs of endpoints to delete
-    CreateVpcEndpointResult:
+    CreateVpcEndpointRequest:
       type: object
+      required:
+      - VpcId
+      - ServiceName
       properties:
-        VpcEndpoint:
-          $ref: '#/components/schemas/VpcEndpoint'
-    DescribeVpcEndpointsResult:
-      type: object
-      properties:
-        VpcEndpoints:
+        VpcId:
+          type: string
+          description: ID of the VPC for the endpoint
+        ServiceName:
+          type: string
+          description: Service name for the endpoint
+        VpcEndpointType:
+          type: string
+          enum:
+          - Interface
+          - Gateway
+          - GatewayLoadBalancer
+          description: Type of VPC endpoint
+        SubnetId:
           type: array
           items:
-            $ref: '#/components/schemas/VpcEndpoint'
-        NextToken:
+            type: string
+          description: IDs of subnets for interface endpoints
+        SecurityGroupId:
+          type: array
+          items:
+            type: string
+          description: IDs of security groups for interface endpoints
+        PolicyDocument:
           type: string
+          description: Policy document for gateway endpoints
+        PrivateDnsEnabled:
+          type: boolean
+          description: Enable private DNS for interface endpoints
     VpcEndpoint:
       type: object
       properties:
@@ -197,41 +227,11 @@ components:
               HostedZoneId:
                 type: string
           description: DNS entries for the endpoint
-    CreateVpcEndpointRequest:
+    CreateVpcEndpointResult:
       type: object
-      required:
-      - VpcId
-      - ServiceName
       properties:
-        VpcId:
-          type: string
-          description: ID of the VPC for the endpoint
-        ServiceName:
-          type: string
-          description: Service name for the endpoint
-        VpcEndpointType:
-          type: string
-          enum:
-          - Interface
-          - Gateway
-          - GatewayLoadBalancer
-          description: Type of VPC endpoint
-        SubnetId:
-          type: array
-          items:
-            type: string
-          description: IDs of subnets for interface endpoints
-        SecurityGroupId:
-          type: array
-          items:
-            type: string
-          description: IDs of security groups for interface endpoints
-        PolicyDocument:
-          type: string
-          description: Policy document for gateway endpoints
-        PrivateDnsEnabled:
-          type: boolean
-          description: Enable private DNS for interface endpoints
+        VpcEndpoint:
+          $ref: '#/components/schemas/VpcEndpoint'
   securitySchemes:
     sigv4:
       type: apiKey
