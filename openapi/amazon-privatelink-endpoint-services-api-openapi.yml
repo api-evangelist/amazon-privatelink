@@ -111,53 +111,40 @@ paths:
           description: VPC endpoint service configurations deleted
 components:
   schemas:
-    ModifyVpcEndpointServiceConfigurationRequest:
+    CreateVpcEndpointServiceConfigurationRequest:
+      type: object
+      properties:
+        NetworkLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Network Load Balancers for the endpoint service
+        GatewayLoadBalancerArn:
+          type: array
+          items:
+            type: string
+          description: ARNs of Gateway Load Balancers for the endpoint service
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connection requests require manual acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name for the endpoint service
+    CreateVpcEndpointServiceConfigurationResult:
+      type: object
+      properties:
+        ServiceConfiguration:
+          $ref: '#/components/schemas/ServiceConfiguration'
+    DeleteVpcEndpointServiceConfigurationsRequest:
       type: object
       required:
       - ServiceId
       properties:
         ServiceId:
-          type: string
-          description: ID of the endpoint service to modify
-        AcceptanceRequired:
-          type: boolean
-          description: Whether connections require acceptance
-        PrivateDnsName:
-          type: string
-          description: Private DNS name
-    ServiceDetail:
-      type: object
-      properties:
-        ServiceName:
-          type: string
-          description: Name of the endpoint service
-        ServiceId:
-          type: string
-          description: Unique ID of the endpoint service
-        ServiceType:
-          type: array
-          items:
-            type: object
-          description: Type of service
-        AvailabilityZones:
           type: array
           items:
             type: string
-          description: Availability zones
-        Owner:
-          type: string
-          description: Owner AWS account ID
-        BaseEndpointDnsNames:
-          type: array
-          items:
-            type: string
-          description: Base DNS names for the endpoint service
-        PrivateDnsName:
-          type: string
-          description: Private DNS name
-        AcceptanceRequired:
-          type: boolean
-          description: Whether acceptance is required
+          description: IDs of endpoint services to delete
     DescribeVpcEndpointServicesResult:
       type: object
       properties:
@@ -212,40 +199,53 @@ components:
         PrivateDnsName:
           type: string
           description: Private DNS name
-    CreateVpcEndpointServiceConfigurationRequest:
+    ServiceDetail:
       type: object
       properties:
-        NetworkLoadBalancerArn:
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service
+        AvailabilityZones:
           type: array
           items:
             type: string
-          description: ARNs of Network Load Balancers for the endpoint service
-        GatewayLoadBalancerArn:
+          description: Availability zones
+        Owner:
+          type: string
+          description: Owner AWS account ID
+        BaseEndpointDnsNames:
           type: array
           items:
             type: string
-          description: ARNs of Gateway Load Balancers for the endpoint service
-        AcceptanceRequired:
-          type: boolean
-          description: Whether connection requests require manual acceptance
+          description: Base DNS names for the endpoint service
         PrivateDnsName:
           type: string
-          description: Private DNS name for the endpoint service
-    DeleteVpcEndpointServiceConfigurationsRequest:
+          description: Private DNS name
+        AcceptanceRequired:
+          type: boolean
+          description: Whether acceptance is required
+    ModifyVpcEndpointServiceConfigurationRequest:
       type: object
       required:
       - ServiceId
       properties:
         ServiceId:
-          type: array
-          items:
-            type: string
-          description: IDs of endpoint services to delete
-    CreateVpcEndpointServiceConfigurationResult:
-      type: object
-      properties:
-        ServiceConfiguration:
-          $ref: '#/components/schemas/ServiceConfiguration'
+          type: string
+          description: ID of the endpoint service to modify
+        AcceptanceRequired:
+          type: boolean
+          description: Whether connections require acceptance
+        PrivateDnsName:
+          type: string
+          description: Private DNS name
   securitySchemes:
     sigv4:
       type: apiKey

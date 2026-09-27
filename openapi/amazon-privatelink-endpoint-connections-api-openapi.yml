@@ -89,39 +89,6 @@ paths:
           description: Endpoint connections rejected
 components:
   schemas:
-    RejectVpcEndpointConnectionsRequest:
-      type: object
-      required:
-      - ServiceId
-      - VpcEndpointId
-      properties:
-        ServiceId:
-          type: string
-          description: ID of the endpoint service
-        VpcEndpointId:
-          type: array
-          items:
-            type: string
-          description: IDs of endpoints to reject
-    VpcEndpointConnection:
-      type: object
-      properties:
-        ServiceId:
-          type: string
-          description: ID of the endpoint service
-        VpcEndpointId:
-          type: string
-          description: ID of the VPC endpoint
-        VpcEndpointOwner:
-          type: string
-          description: AWS account ID of the endpoint owner
-        VpcEndpointState:
-          type: string
-          description: State of the endpoint
-        CreationTimestamp:
-          type: string
-          format: date-time
-          description: Time the connection was created
     DescribeVpcEndpointConnectionsResult:
       type: object
       properties:
@@ -145,6 +112,39 @@ components:
           items:
             type: string
           description: IDs of endpoints to accept
+    VpcEndpointConnection:
+      type: object
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: string
+          description: ID of the VPC endpoint
+        VpcEndpointOwner:
+          type: string
+          description: AWS account ID of the endpoint owner
+        VpcEndpointState:
+          type: string
+          description: State of the endpoint
+        CreationTimestamp:
+          type: string
+          format: date-time
+          description: Time the connection was created
+    RejectVpcEndpointConnectionsRequest:
+      type: object
+      required:
+      - ServiceId
+      - VpcEndpointId
+      properties:
+        ServiceId:
+          type: string
+          description: ID of the endpoint service
+        VpcEndpointId:
+          type: array
+          items:
+            type: string
+          description: IDs of endpoints to reject
   securitySchemes:
     sigv4:
       type: apiKey

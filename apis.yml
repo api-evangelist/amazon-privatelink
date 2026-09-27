@@ -134,7 +134,7 @@ apis:
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
 common:
 - type: Website
-  url: https://amazon.com
+  url: https://aws.amazon.com/privatelink/
 - type: PostmanWorkspace
   url: https://www.postman.com/kinlaneapi/amazon-privatelink/overview
 - type: AgenticAccess
@@ -346,5 +346,5 @@ maintainers:
   email: kin@apievangelist.com
   url: https://apievangelist.com
 include: []
-x-parent: aws
+x-parent: amazon-web-services
 x-relationship: product
