@@ -89,16 +89,7 @@ paths:
           description: Endpoint connections rejected
 components:
   schemas:
-    DescribeVpcEndpointConnectionsResult:
-      type: object
-      properties:
-        VpcEndpointConnections:
-          type: array
-          items:
-            $ref: '#/components/schemas/VpcEndpointConnection'
-        NextToken:
-          type: string
-    AcceptVpcEndpointConnectionsRequest:
+    RejectVpcEndpointConnectionsRequest:
       type: object
       required:
       - ServiceId
@@ -111,7 +102,16 @@ components:
           type: array
           items:
             type: string
-          description: IDs of endpoints to accept
+          description: IDs of endpoints to reject
+    DescribeVpcEndpointConnectionsResult:
+      type: object
+      properties:
+        VpcEndpointConnections:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpointConnection'
+        NextToken:
+          type: string
     VpcEndpointConnection:
       type: object
       properties:
@@ -131,7 +131,7 @@ components:
           type: string
           format: date-time
           description: Time the connection was created
-    RejectVpcEndpointConnectionsRequest:
+    AcceptVpcEndpointConnectionsRequest:
       type: object
       required:
       - ServiceId
@@ -144,7 +144,7 @@ components:
           type: array
           items:
             type: string
-          description: IDs of endpoints to reject
+          description: IDs of endpoints to accept
   securitySchemes:
     sigv4:
       type: apiKey

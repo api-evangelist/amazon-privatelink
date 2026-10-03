@@ -130,11 +130,6 @@ components:
         PrivateDnsName:
           type: string
           description: Private DNS name for the endpoint service
-    CreateVpcEndpointServiceConfigurationResult:
-      type: object
-      properties:
-        ServiceConfiguration:
-          $ref: '#/components/schemas/ServiceConfiguration'
     DeleteVpcEndpointServiceConfigurationsRequest:
       type: object
       required:
@@ -145,21 +140,44 @@ components:
           items:
             type: string
           description: IDs of endpoint services to delete
-    DescribeVpcEndpointServicesResult:
+    ServiceDetail:
       type: object
       properties:
-        ServiceNames:
+        ServiceName:
+          type: string
+          description: Name of the endpoint service
+        ServiceId:
+          type: string
+          description: Unique ID of the endpoint service
+        ServiceType:
+          type: array
+          items:
+            type: object
+          description: Type of service
+        AvailabilityZones:
           type: array
           items:
             type: string
-          description: List of supported service names
-        ServiceDetails:
+          description: Availability zones
+        Owner:
+          type: string
+          description: Owner AWS account ID
+        BaseEndpointDnsNames:
           type: array
           items:
-            $ref: '#/components/schemas/ServiceDetail'
-        NextToken:
+            type: string
+          description: Base DNS names for the endpoint service
+        PrivateDnsName:
           type: string
-          description: Token for next page of results
+          description: Private DNS name
+        AcceptanceRequired:
+          type: boolean
+          description: Whether acceptance is required
+    CreateVpcEndpointServiceConfigurationResult:
+      type: object
+      properties:
+        ServiceConfiguration:
+          $ref: '#/components/schemas/ServiceConfiguration'
     ServiceConfiguration:
       type: object
       properties:
@@ -199,39 +217,6 @@ components:
         PrivateDnsName:
           type: string
           description: Private DNS name
-    ServiceDetail:
-      type: object
-      properties:
-        ServiceName:
-          type: string
-          description: Name of the endpoint service
-        ServiceId:
-          type: string
-          description: Unique ID of the endpoint service
-        ServiceType:
-          type: array
-          items:
-            type: object
-          description: Type of service
-        AvailabilityZones:
-          type: array
-          items:
-            type: string
-          description: Availability zones
-        Owner:
-          type: string
-          description: Owner AWS account ID
-        BaseEndpointDnsNames:
-          type: array
-          items:
-            type: string
-          description: Base DNS names for the endpoint service
-        PrivateDnsName:
-          type: string
-          description: Private DNS name
-        AcceptanceRequired:
-          type: boolean
-          description: Whether acceptance is required
     ModifyVpcEndpointServiceConfigurationRequest:
       type: object
       required:
@@ -246,6 +231,21 @@ components:
         PrivateDnsName:
           type: string
           description: Private DNS name
+    DescribeVpcEndpointServicesResult:
+      type: object
+      properties:
+        ServiceNames:
+          type: array
+          items:
+            type: string
+          description: List of supported service names
+        ServiceDetails:
+          type: array
+          items:
+            $ref: '#/components/schemas/ServiceDetail'
+        NextToken:
+          type: string
+          description: Token for next page of results
   securitySchemes:
     sigv4:
       type: apiKey
