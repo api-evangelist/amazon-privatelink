@@ -109,16 +109,20 @@ paths:
           description: VPC endpoints deleted
 components:
   schemas:
-    DeleteVpcEndpointsRequest:
+    ModifyVpcEndpointRequest:
       type: object
       required:
       - VpcEndpointId
       properties:
         VpcEndpointId:
-          type: array
-          items:
-            type: string
-          description: IDs of endpoints to delete
+          type: string
+          description: ID of the endpoint to modify
+        ResetPolicy:
+          type: boolean
+          description: Reset the policy to the default
+        PolicyDocument:
+          type: string
+          description: New policy document
     CreateVpcEndpointRequest:
       type: object
       required:
@@ -154,25 +158,15 @@ components:
         PrivateDnsEnabled:
           type: boolean
           description: Enable private DNS for interface endpoints
-    CreateVpcEndpointResult:
+    DescribeVpcEndpointsResult:
       type: object
       properties:
-        VpcEndpoint:
-          $ref: '#/components/schemas/VpcEndpoint'
-    ModifyVpcEndpointRequest:
-      type: object
-      required:
-      - VpcEndpointId
-      properties:
-        VpcEndpointId:
+        VpcEndpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpoint'
+        NextToken:
           type: string
-          description: ID of the endpoint to modify
-        ResetPolicy:
-          type: boolean
-          description: Reset the policy to the default
-        PolicyDocument:
-          type: string
-          description: New policy document
     VpcEndpoint:
       type: object
       properties:
@@ -223,15 +217,21 @@ components:
               HostedZoneId:
                 type: string
           description: DNS entries for the endpoint
-    DescribeVpcEndpointsResult:
+    CreateVpcEndpointResult:
       type: object
       properties:
-        VpcEndpoints:
+        VpcEndpoint:
+          $ref: '#/components/schemas/VpcEndpoint'
+    DeleteVpcEndpointsRequest:
+      type: object
+      required:
+      - VpcEndpointId
+      properties:
+        VpcEndpointId:
           type: array
           items:
-            $ref: '#/components/schemas/VpcEndpoint'
-        NextToken:
-          type: string
+            type: string
+          description: IDs of endpoints to delete
   securitySchemes:
     sigv4:
       type: apiKey
