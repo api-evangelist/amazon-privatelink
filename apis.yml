@@ -133,6 +133,12 @@ apis:
   - type: RateLimits
     url: https://docs.aws.amazon.com/vpc/latest/privatelink/privatelink-quotas.html
 common:
+- type: Plans
+  url: plans/amazon-privatelink-plans-pricing.yml
+- type: RateLimits
+  url: rate-limits/amazon-privatelink-rate-limits.yml
+- type: FinOps
+  url: finops/amazon-privatelink-finops.yml
 - type: Website
   url: https://aws.amazon.com/privatelink/
 - type: PostmanWorkspace
