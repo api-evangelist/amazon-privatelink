@@ -109,64 +109,6 @@ paths:
           description: VPC endpoints deleted
 components:
   schemas:
-    ModifyVpcEndpointRequest:
-      type: object
-      required:
-      - VpcEndpointId
-      properties:
-        VpcEndpointId:
-          type: string
-          description: ID of the endpoint to modify
-        ResetPolicy:
-          type: boolean
-          description: Reset the policy to the default
-        PolicyDocument:
-          type: string
-          description: New policy document
-    CreateVpcEndpointRequest:
-      type: object
-      required:
-      - VpcId
-      - ServiceName
-      properties:
-        VpcId:
-          type: string
-          description: ID of the VPC for the endpoint
-        ServiceName:
-          type: string
-          description: Service name for the endpoint
-        VpcEndpointType:
-          type: string
-          enum:
-          - Interface
-          - Gateway
-          - GatewayLoadBalancer
-          description: Type of VPC endpoint
-        SubnetId:
-          type: array
-          items:
-            type: string
-          description: IDs of subnets for interface endpoints
-        SecurityGroupId:
-          type: array
-          items:
-            type: string
-          description: IDs of security groups for interface endpoints
-        PolicyDocument:
-          type: string
-          description: Policy document for gateway endpoints
-        PrivateDnsEnabled:
-          type: boolean
-          description: Enable private DNS for interface endpoints
-    DescribeVpcEndpointsResult:
-      type: object
-      properties:
-        VpcEndpoints:
-          type: array
-          items:
-            $ref: '#/components/schemas/VpcEndpoint'
-        NextToken:
-          type: string
     VpcEndpoint:
       type: object
       properties:
@@ -217,11 +159,34 @@ components:
               HostedZoneId:
                 type: string
           description: DNS entries for the endpoint
+    ModifyVpcEndpointRequest:
+      type: object
+      required:
+      - VpcEndpointId
+      properties:
+        VpcEndpointId:
+          type: string
+          description: ID of the endpoint to modify
+        ResetPolicy:
+          type: boolean
+          description: Reset the policy to the default
+        PolicyDocument:
+          type: string
+          description: New policy document
     CreateVpcEndpointResult:
       type: object
       properties:
         VpcEndpoint:
           $ref: '#/components/schemas/VpcEndpoint'
+    DescribeVpcEndpointsResult:
+      type: object
+      properties:
+        VpcEndpoints:
+          type: array
+          items:
+            $ref: '#/components/schemas/VpcEndpoint'
+        NextToken:
+          type: string
     DeleteVpcEndpointsRequest:
       type: object
       required:
@@ -232,6 +197,41 @@ components:
           items:
             type: string
           description: IDs of endpoints to delete
+    CreateVpcEndpointRequest:
+      type: object
+      required:
+      - VpcId
+      - ServiceName
+      properties:
+        VpcId:
+          type: string
+          description: ID of the VPC for the endpoint
+        ServiceName:
+          type: string
+          description: Service name for the endpoint
+        VpcEndpointType:
+          type: string
+          enum:
+          - Interface
+          - Gateway
+          - GatewayLoadBalancer
+          description: Type of VPC endpoint
+        SubnetId:
+          type: array
+          items:
+            type: string
+          description: IDs of subnets for interface endpoints
+        SecurityGroupId:
+          type: array
+          items:
+            type: string
+          description: IDs of security groups for interface endpoints
+        PolicyDocument:
+          type: string
+          description: Policy document for gateway endpoints
+        PrivateDnsEnabled:
+          type: boolean
+          description: Enable private DNS for interface endpoints
   securitySchemes:
     sigv4:
       type: apiKey
