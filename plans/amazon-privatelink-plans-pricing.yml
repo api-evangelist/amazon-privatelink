@@ -1,0 +1,118 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-10-28'
+method: searched
+source: https://aws.amazon.com/privatelink/pricing/
+sources:
+- https://aws.amazon.com/privatelink/pricing/
+provenance:
+  tool: engine/economics/harvest_pricing.py
+  run: 20261028T161713
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-10-28'
+published: true
+note: Main hourly rate tables render via dynamic pricing tokens (not shown); numeric values come from
+  the data-processing tier tables and pricing examples.
+plan_count: 6
+currency: USD
+plans:
+- name: Interface Endpoint data processed - First 1 PB
+  price_text: $0.01
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: per GB of data processed
+  included_quota: First 1 PB per month in an AWS Region
+- name: Interface Endpoint data processed - Next 4 PB
+  price_text: $0.006
+  price: 0.006
+  currency: USD
+  period: per-use
+  unit: per GB of data processed
+  included_quota: Next 4 PB per month in an AWS Region
+- name: Interface Endpoint data processed - Over 5 PB
+  price_text: $0.004
+  price: 0.004
+  currency: USD
+  period: per-use
+  unit: per GB of data processed
+  included_quota: Anything over 5 PB
+- name: Cross-region service charge per remote region (pricing example)
+  price_text: $0.05/hour
+  price: 0.05
+  currency: USD
+  period: per-use
+  unit: per remote AWS Region per service per hour
+- name: Endpoint ENI hourly charge (pricing example)
+  price_text: $0.01 per hour
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: per endpoint ENI per hour
+- name: Resource Endpoint hourly charge (pricing example, us-east-1)
+  price_text: $0.02 per resource per hour
+  price: 0.02
+  currency: USD
+  period: per-use
+  unit: per resource per hour
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  units:
+  - compute
+  - data
+  plans:
+  - name: Interface Endpoint data processed - First 1 PB
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Interface Endpoint data processed - Next 4 PB
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Interface Endpoint data processed - Over 5 PB
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: Cross-region service charge per remote region (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Endpoint ENI hourly charge (pricing example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Resource Endpoint hourly charge (pricing example, us-east-1)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
